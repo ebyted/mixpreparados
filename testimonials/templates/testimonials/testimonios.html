@@ -1,9 +1,7 @@
-<html lang="en" class="">
 
+<html class="">
+              
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Los Compadres Mix</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&display=swap" rel="stylesheet">
     
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
@@ -329,29 +327,24 @@
 </head>
 
               <body class="h-full text-base-content">
-                <div class="min-h-screen bg-white">
-    <!-- Header -->
+                <div class="min-h-screen bg-cyan-50">
+    <!-- Header remains exactly the same -->
     <header id="header" class="fixed w-full bg-white shadow-md z-50">
         <div class="container mx-auto px-4">
             <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
                 <div class="flex-shrink-0">
-                    <img class="h-16 w-auto" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/09463ac7d5-000c29494d5127c13cd1.png" alt="modern logo design for Los Compadres Mix featuring vibrant Mexican colors and a stylized drink icon, minimalist" >
+                    <img class="h-16 w-auto" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/09463ac7d5-000c29494d5127c13cd1.png" alt="Los Compadres Mix logo">
                 </div>
-                
-                <!-- Navigation -->
                 <nav class="hidden md:flex space-x-8">
-                    <span  class="text-red-600 font-semibold cursor-pointer">Home</span>
-                    <span  class="text-gray-600 hover:text-red-600 cursor-pointer">Products</span>
-                    <span  class="text-gray-600 hover:text-red-600 cursor-pointer">About Us</span>
-                    <span  class="text-gray-600 hover:text-red-600 cursor-pointer">Testimonials</span>
-                    <span  class="text-gray-600 hover:text-red-600 cursor-pointer">Promotions</span>
-                    <span  class="text-gray-600 hover:text-red-600 cursor-pointer">Contact</span>
+                    <span class="text-gray-600 hover:text-red-600 cursor-pointer">Home</span>
+                    <span class="text-gray-600 hover:text-red-600 cursor-pointer">Products</span>
+                    <span class="text-gray-600 hover:text-red-600 cursor-pointer">About Us</span>
+                    <span class="text-red-600 font-semibold cursor-pointer">Testimonials</span>
+                    <span class="text-gray-600 hover:text-red-600 cursor-pointer">Promotions</span>
+                    <span class="text-gray-600 hover:text-red-600 cursor-pointer">Contact</span>
                 </nav>
-
-                <!-- Mobile Menu Button -->
                 <div class="md:hidden">
-                    <button class="text-gray-600" title="Menu">
+                    <button class="text-gray-600">
                         <i class="fa-solid fa-bars text-2xl"></i>
                     </button>
                 </div>
@@ -359,92 +352,111 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero" class="pt-20 h-[800px] bg-gradient-to-r from-blue-50 to-green-50">
+    <!-- Testimonials Hero Section -->
+    <section id="testimonials-hero" class="pt-20 h-[400px] bg-gradient-to-r from-cyan-100 to-emerald-50">
         <div class="container mx-auto px-4 py-20">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <h1 class="text-5xl font-bold text-gray-800 mb-6">Experience Authentic Mexican Flavors</h1>
-                    <p class="text-xl text-gray-600 mb-8">Discover our handcrafted mix preparados, bringing the taste of Mexico to your celebrations.</p>
-                    <button class="bg-red-600 text-white px-8 py-4 rounded-full hover:bg-red-700 transition">
-                        Explore Our Menu
-                    </button>
-                </div>
-                <div class="md:w-1/2">
-                    <img class="rounded-3xl shadow-2xl" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/9ce0a5487b-4075b5b9ceacc190991f.png" alt="professional photo of colorful Mexican drink with fruits and chamoy rim, garnished with tamarind candy and fresh lime" >
-                </div>
+            <div class="text-center">
+                <h1 class="text-5xl font-bold text-gray-800 mb-6">Customer Stories</h1>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Discover what our valued customers have to say about their experience with Los Compadres Mix Preparados.</p>
             </div>
         </div>
     </section>
 
-    <!-- Featured Products -->
-    <section id="featured-products" class="py-20 bg-gradient-to-r from-white to-blue-50">
+    <!-- Featured Testimonials -->
+    <section id="featured-testimonials" class="py-20 bg-cyan-50">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-16">Our Signature Drinks</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div id="product-1" class="bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <img class="w-full h-64 object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/256689de4a-82c16aa6c077b32fc432.png" alt="Mexican mangonada drink with chamoy and tajin, styled product photography" >
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Mangonada Supreme</h3>
-                        <p class="text-gray-600 mb-4">Fresh mango smoothie with chamoy, tajin, and tamarind candy</p>
-                        <span class="text-red-600 font-bold text-lg">$8.99</span>
+                <div id="testimonial-1" class="bg-white rounded-2xl shadow-lg p-8">
+                    <div class="flex items-center mb-6">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg" alt="Customer" class="w-16 h-16 rounded-full">
+                        <div class="ml-4">
+                            <h3 class="text-xl font-bold">Maria Rodriguez</h3>
+                            <div class="flex text-yellow-400">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
                     </div>
+                    <p class="text-gray-600">"The Mangonada Supreme is absolutely incredible! The perfect balance of sweet and spicy. It reminds me of the authentic flavors from my hometown in Mexico."</p>
                 </div>
 
-                <div id="product-2" class="bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <img class="w-full h-64 object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/e038101ed7-53634b16dfee36034aa9.png" alt="Mexican michelada with shrimp and cucumber garnish, styled product photography" >
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Michelada Especial</h3>
-                        <p class="text-gray-600 mb-4">Classic michelada with shrimp and cucumber garnish</p>
-                        <span class="text-red-600 font-bold text-lg">$10.99</span>
+                <div id="testimonial-2" class="bg-white rounded-2xl shadow-lg p-8">
+                    <div class="flex items-center mb-6">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg" alt="Customer" class="w-16 h-16 rounded-full">
+                        <div class="ml-4">
+                            <h3 class="text-xl font-bold">John Martinez</h3>
+                            <div class="flex text-yellow-400">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
                     </div>
+                    <p class="text-gray-600">"Best Michelada in town! The presentation is amazing and the taste is even better. The shrimp garnish takes it to another level."</p>
                 </div>
 
-                <div id="product-3" class="bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <img class="w-full h-64 object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/3224244edf-8d3f5ae3fcef5cbbb55d.png" alt="Mexican fruit cup with chamoy and tajin, styled product photography" >
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Fruit Cup Deluxe</h3>
-                        <p class="text-gray-600 mb-4">Mixed fresh fruits with chamoy, lime, and tajin</p>
-                        <span class="text-red-600 font-bold text-lg">$7.99</span>
+                <div id="testimonial-3" class="bg-white rounded-2xl shadow-lg p-8">
+                    <div class="flex items-center mb-6">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg" alt="Customer" class="w-16 h-16 rounded-full">
+                        <div class="ml-4">
+                            <h3 class="text-xl font-bold">Sofia Garcia</h3>
+                            <div class="flex text-yellow-400">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
                     </div>
+                    <p class="text-gray-600">"The Fruit Cup Deluxe is my go-to refreshment! Fresh fruits, perfect amount of chamoy, and the service is always friendly."</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Promotions -->
-    <section id="promotions" class="py-20 bg-gradient-to-br from-green-50 to-blue-100">
+    <!-- Video Testimonial -->
+    <section id="video-testimonial" class="py-20 bg-emerald-50">
         <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-1/2">
-                    <h2 class="text-4xl font-bold mb-6">Special Offers</h2>
-                    <div id="promo-1" class="bg-white rounded-xl p-6 shadow-lg mb-6">
-                        <div class="flex items-center gap-4">
-                            <i class="fa-solid fa-ticket text-red-600 text-3xl"></i>
-                            <div>
-                                <h3 class="text-xl font-bold">Happy Hour Special</h3>
-                                <p class="text-gray-600">20% off all drinks from 2PM to 5PM</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="promo-2" class="bg-white rounded-xl p-6 shadow-lg">
-                        <div class="flex items-center gap-4">
-                            <i class="fa-solid fa-users text-red-600 text-3xl"></i>
-                            <div>
-                                <h3 class="text-xl font-bold">Family Pack</h3>
-                                <p class="text-gray-600">Buy 4 drinks, get 1 free</p>
-                            </div>
-                        </div>
-                    </div>
+                    <img class="rounded-3xl shadow-2xl" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/2dfc445d51-e7e4e359b2656b92f557.png" alt="Customers enjoying drinks at Los Compadres Mix">
                 </div>
                 <div class="md:w-1/2">
-                    <img class="rounded-3xl shadow-2xl" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/2dfc445d51-e7e4e359b2656b92f557.png" alt="group of friends enjoying Mexican drinks at outdoor restaurant, lifestyle photography" >
+                    <h2 class="text-4xl font-bold mb-6">Our Happy Customers</h2>
+                    <div id="testimonial-stats" class="grid grid-cols-3 gap-6 mb-8">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-red-600">500+</div>
+                            <div class="text-gray-600">Happy Customers</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-red-600">4.9</div>
+                            <div class="text-gray-600">Average Rating</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-red-600">98%</div>
+                            <div class="text-gray-600">Would Recommend</div>
+                        </div>
+                    </div>
+                    <p class="text-xl text-gray-600 mb-8">"Los Compadres Mix has become our favorite spot for authentic Mexican drinks. The quality and presentation are consistently outstanding!"</p>
+                    <div class="flex items-center">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-7.jpg" alt="Featured Customer" class="w-12 h-12 rounded-full">
+                        <div class="ml-4">
+                            <h4 class="font-bold">Ana Morales</h4>
+                            <p class="text-gray-600">Regular Customer</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer with updated background -->
     <footer id="footer" class="bg-blue-900 text-white py-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -479,7 +491,7 @@
                     </div>
                 </div>
             </div>
-            <div class="border-t border-blue-800 mt-8 pt-8 text-center text-blue-200">
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
                 <p>&copy; 2025 Los Compadres Mix Preparados. All rights reserved.</p>
             </div>
         </div>
