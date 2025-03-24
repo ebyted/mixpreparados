@@ -341,12 +341,11 @@
                 
                 <!-- Navigation -->
                 <nav class="hidden md:flex space-x-8">
-                    <span  class="text-red-600 font-semibold cursor-pointer">Home</span>
-                    <span  class="text-gray-600 hover:text-red-600 cursor-pointer">Products</span>
-                    <span  class="text-gray-600 hover:text-red-600 cursor-pointer">About Us</span>
-                    <span  class="text-gray-600 hover:text-red-600 cursor-pointer">Testimonials</span>
-                    <span  class="text-gray-600 hover:text-red-600 cursor-pointer">Promotions</span>
-                    <span  class="text-gray-600 hover:text-red-600 cursor-pointer">Contact</span>
+                    <a href="{% url 'home' %}" class="text-red-600 font-semibold">Home</a>
+                    <a href="{% url 'products' %}" class="text-gray-600 hover:text-red-600">Products</a>
+                    <a href="{% url 'about' %}" class="text-gray-600 hover:text-red-600">About Us</a>
+                    <a href="{% url 'testimonials' %}" class="text-gray-600 hover:text-red-600">Testimonials</a>
+                    <a href="{% url 'contact' %}" class="text-gray-600 hover:text-red-600">Contact</a>
                 </nav>
 
                 <!-- Mobile Menu Button -->

@@ -327,22 +327,24 @@
 </head>
 
               <body class="h-full text-base-content">
-                <div class="min-h-screen bg-cyan-50">
-    <!-- Header remains exactly the same -->
+                <div id="main-container" class="min-h-screen bg-teal-50">
+    <!-- Header -->
     <header id="header" class="fixed w-full bg-white shadow-md z-50">
         <div class="container mx-auto px-4">
             <div class="flex items-center justify-between h-20">
-                <div class="flex-shrink-0">
-                    <img class="h-16 w-auto" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/09463ac7d5-000c29494d5127c13cd1.png" alt="Los Compadres Mix logo">
+                <div id="logo" class="flex items-center">
+                    <img class="h-12 w-auto" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/7f88a60ff4-d53487f517867e0bcb9c.png" alt="modern mexican restaurant logo with vibrant colors, minimalist design">
+                    <span class="ml-2 text-2xl font-bold text-red-600">Los Compadres</span>
                 </div>
+                
                 <nav class="hidden md:flex space-x-8">
-                    <span class="text-gray-600 hover:text-red-600 cursor-pointer">Home</span>
-                    <span class="text-gray-600 hover:text-red-600 cursor-pointer">Products</span>
-                    <span class="text-gray-600 hover:text-red-600 cursor-pointer">About Us</span>
-                    <span class="text-red-600 font-semibold cursor-pointer">Testimonials</span>
-                    <span class="text-gray-600 hover:text-red-600 cursor-pointer">Promotions</span>
-                    <span class="text-gray-600 hover:text-red-600 cursor-pointer">Contact</span>
+                    <a href="{% url 'home' %}" class="text-red-600 font-semibold">Home</a>
+                    <a href="{% url 'products' %}" class="text-gray-600 hover:text-red-600">Products</a>
+                    <a href="{% url 'about' %}" class="text-gray-600 hover:text-red-600">About Us</a>
+                    <a href="{% url 'testimonials' %}" class="text-gray-600 hover:text-red-600">Testimonials</a>
+                    <a href="{% url 'contact' %}" class="text-gray-600 hover:text-red-600">Contact</a>
                 </nav>
+                
                 <div class="md:hidden">
                     <button class="text-gray-600">
                         <i class="fa-solid fa-bars text-2xl"></i>
@@ -352,146 +354,131 @@
         </div>
     </header>
 
-    <!-- Testimonials Hero Section -->
-    <section id="testimonials-hero" class="pt-20 h-[400px] bg-gradient-to-r from-cyan-100 to-emerald-50">
-        <div class="container mx-auto px-4 py-20">
-            <div class="text-center">
-                <h1 class="text-5xl font-bold text-gray-800 mb-6">Customer Stories</h1>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Discover what our valued customers have to say about their experience with Los Compadres Mix Preparados.</p>
+    <!-- Contact Hero Section -->
+    <section id="contact-hero" class="pt-20 bg-gradient-to-r from-teal-50 to-cyan-50">
+        <div class="container mx-auto px-4 py-16">
+            <div class="text-center max-w-3xl mx-auto">
+                <h1 class="text-5xl font-bold text-gray-800 mb-6">Get in Touch</h1>
+                <p class="text-xl text-gray-600">We'd love to hear from you! Reach out for questions, catering inquiries, or feedback.</p>
             </div>
         </div>
     </section>
 
-    <!-- Featured Testimonials -->
-    <section id="featured-testimonials" class="py-20 bg-cyan-50">
+    <!-- Contact Information Section -->
+    <section id="contact-info" class="py-16">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div id="testimonial-1" class="bg-white rounded-2xl shadow-lg p-8">
-                    <div class="flex items-center mb-6">
-                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg" alt="Customer" class="w-16 h-16 rounded-full">
-                        <div class="ml-4">
-                            <h3 class="text-xl font-bold">Maria Rodriguez</h3>
-                            <div class="flex text-yellow-400">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div id="contact-card-1" class="bg-white rounded-xl shadow-lg p-8 text-center">
+                    <div class="text-red-600 mb-4">
+                        <i class="fa-solid fa-location-dot text-4xl"></i>
                     </div>
-                    <p class="text-gray-600">"The Mangonada Supreme is absolutely incredible! The perfect balance of sweet and spicy. It reminds me of the authentic flavors from my hometown in Mexico."</p>
+                    <h3 class="text-xl font-bold mb-2">Visit Us</h3>
+                    <p class="text-gray-600">123 Fiesta Street<br>San Antonio, TX 78205</p>
                 </div>
 
-                <div id="testimonial-2" class="bg-white rounded-2xl shadow-lg p-8">
-                    <div class="flex items-center mb-6">
-                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg" alt="Customer" class="w-16 h-16 rounded-full">
-                        <div class="ml-4">
-                            <h3 class="text-xl font-bold">John Martinez</h3>
-                            <div class="flex text-yellow-400">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
+                <div id="contact-card-2" class="bg-white rounded-xl shadow-lg p-8 text-center">
+                    <div class="text-red-600 mb-4">
+                        <i class="fa-solid fa-phone text-4xl"></i>
                     </div>
-                    <p class="text-gray-600">"Best Michelada in town! The presentation is amazing and the taste is even better. The shrimp garnish takes it to another level."</p>
+                    <h3 class="text-xl font-bold mb-2">Call Us</h3>
+                    <p class="text-gray-600">(555) 123-4567<br>Mon-Sun: 10AM - 10PM</p>
                 </div>
 
-                <div id="testimonial-3" class="bg-white rounded-2xl shadow-lg p-8">
-                    <div class="flex items-center mb-6">
-                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg" alt="Customer" class="w-16 h-16 rounded-full">
-                        <div class="ml-4">
-                            <h3 class="text-xl font-bold">Sofia Garcia</h3>
-                            <div class="flex text-yellow-400">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
+                <div id="contact-card-3" class="bg-white rounded-xl shadow-lg p-8 text-center">
+                    <div class="text-red-600 mb-4">
+                        <i class="fa-solid fa-envelope text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Email Us</h3>
+                    <p class="text-gray-600">info@loscompadres.com<br>catering@loscompadres.com</p>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div id="contact-form" class="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-3xl font-bold text-center mb-8">Send Us a Message</h2>
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-700 mb-2">First Name</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Last Name</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600">
                         </div>
                     </div>
-                    <p class="text-gray-600">"The Fruit Cup Deluxe is my go-to refreshment! Fresh fruits, perfect amount of chamoy, and the service is always friendly."</p>
-                </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Email Address</label>
+                        <input type="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Subject</label>
+                        <select class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600">
+                            <option>General Inquiry</option>
+                            <option>Catering Services</option>
+                            <option>Feedback</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Message</label>
+                        <textarea rows="6" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button class="bg-red-600 text-white px-8 py-3 rounded-full hover:bg-red-700 transition">
+                            Send Message <i class="fa-solid fa-paper-plane ml-2"></i>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
 
-    <!-- Video Testimonial -->
-    <section id="video-testimonial" class="py-20 bg-emerald-50">
+    <!-- Map Section -->
+    <section id="map-section" class="py-16 bg-teal-100/30">
         <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center gap-12">
-                <div class="md:w-1/2">
-                    <img class="rounded-3xl shadow-2xl" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/2dfc445d51-e7e4e359b2656b92f557.png" alt="Customers enjoying drinks at Los Compadres Mix">
-                </div>
-                <div class="md:w-1/2">
-                    <h2 class="text-4xl font-bold mb-6">Our Happy Customers</h2>
-                    <div id="testimonial-stats" class="grid grid-cols-3 gap-6 mb-8">
-                        <div class="text-center">
-                            <div class="text-4xl font-bold text-red-600">500+</div>
-                            <div class="text-gray-600">Happy Customers</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-4xl font-bold text-red-600">4.9</div>
-                            <div class="text-gray-600">Average Rating</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-4xl font-bold text-red-600">98%</div>
-                            <div class="text-gray-600">Would Recommend</div>
-                        </div>
-                    </div>
-                    <p class="text-xl text-gray-600 mb-8">"Los Compadres Mix has become our favorite spot for authentic Mexican drinks. The quality and presentation are consistently outstanding!"</p>
-                    <div class="flex items-center">
-                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-7.jpg" alt="Featured Customer" class="w-12 h-12 rounded-full">
-                        <div class="ml-4">
-                            <h4 class="font-bold">Ana Morales</h4>
-                            <p class="text-gray-600">Regular Customer</p>
-                        </div>
-                    </div>
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-8">Find Us Here</h2>
+                <div class="rounded-2xl overflow-hidden shadow-lg h-[400px] bg-gray-200">
+                    <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/7309af88bd-89b319a5751a9c10984b.png" alt="map view of san antonio downtown area with location marker, satellite view" >
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer with updated background -->
+    <!-- Footer -->
     <footer id="footer" class="bg-blue-900 text-white py-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div id="footer-about">
-                    <h4 class="text-xl font-bold mb-4">Los Compadres Mix</h4>
-                    <p class="text-gray-400">Bringing authentic Mexican flavors to your celebrations since 2020.</p>
+                    <h3 class="text-xl font-bold mb-4">Los Compadres</h3>
+                    <p class="text-gray-400">Authentic Mexican preparados made with love and tradition.</p>
+                </div>
+                <div id="footer-links">
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><span class="text-gray-400 hover:text-white cursor-pointer">Menu</span></li>
+                        <li><span class="text-gray-400 hover:text-white cursor-pointer">Locations</span></li>
+                        <li><span class="text-gray-400 hover:text-white cursor-pointer">Catering</span></li>
+                    </ul>
                 </div>
                 <div id="footer-contact">
-                    <h4 class="text-xl font-bold mb-4">Contact Us</h4>
-                    <p class="text-gray-400">123 Fiesta Street</p>
-                    <p class="text-gray-400">San Antonio, TX 78205</p>
-                    <p class="text-gray-400">(210) 555-0123</p>
-                </div>
-                <div id="footer-hours">
-                    <h4 class="text-xl font-bold mb-4">Hours</h4>
-                    <p class="text-gray-400">Mon-Thu: 11AM - 9PM</p>
-                    <p class="text-gray-400">Fri-Sat: 11AM - 11PM</p>
-                    <p class="text-gray-400">Sun: 12PM - 8PM</p>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400"><i class="fa-solid fa-phone mr-2"></i> (555) 123-4567</li>
+                        <li class="text-gray-400"><i class="fa-solid fa-envelope mr-2"></i> info@loscompadres.com</li>
+                    </ul>
                 </div>
                 <div id="footer-social">
-                    <h4 class="text-xl font-bold mb-4">Follow Us</h4>
+                    <h3 class="text-xl font-bold mb-4">Follow Us</h3>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white">
-                            <i class="fa-brands fa-facebook text-2xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white">
-                            <i class="fa-brands fa-instagram text-2xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white">
-                            <i class="fa-brands fa-tiktok text-2xl"></i>
-                        </a>
+                        <span class="text-gray-400 hover:text-white cursor-pointer"><i class="fa-brands fa-facebook text-2xl"></i></span>
+                        <span class="text-gray-400 hover:text-white cursor-pointer"><i class="fa-brands fa-instagram text-2xl"></i></span>
+                        <span class="text-gray-400 hover:text-white cursor-pointer"><i class="fa-brands fa-twitter text-2xl"></i></span>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+            <div class="border-t border-blue-800 mt-8 pt-8 text-center text-gray-400">
                 <p>&copy; 2025 Los Compadres Mix Preparados. All rights reserved.</p>
             </div>
         </div>

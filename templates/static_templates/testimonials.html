@@ -327,24 +327,21 @@
 </head>
 
               <body class="h-full text-base-content">
-                <div class="min-h-screen bg-white">
+                <div class="min-h-screen bg-cyan-50">
     <!-- Header remains exactly the same -->
     <header id="header" class="fixed w-full bg-white shadow-md z-50">
         <div class="container mx-auto px-4">
             <div class="flex items-center justify-between h-20">
                 <div class="flex-shrink-0">
-                    <img class="h-16 w-auto" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/09463ac7d5-000c29494d5127c13cd1.png" alt="modern logo design for Los Compadres Mix featuring vibrant Mexican colors and a stylized drink icon, minimalist">
+                    <img class="h-16 w-auto" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/09463ac7d5-000c29494d5127c13cd1.png" alt="Los Compadres Mix logo">
                 </div>
-                
                 <nav class="hidden md:flex space-x-8">
-                    <span class="text-gray-600 hover:text-red-600 cursor-pointer">Home</span>
-                    <span class="text-gray-600 hover:text-red-600 cursor-pointer">Products</span>
-                    <span class="text-red-600 font-semibold cursor-pointer">About Us</span>
-                    <span class="text-gray-600 hover:text-red-600 cursor-pointer">Testimonials</span>
-                    <span class="text-gray-600 hover:text-red-600 cursor-pointer">Promotions</span>
-                    <span class="text-gray-600 hover:text-red-600 cursor-pointer">Contact</span>
+                    <a href="{% url 'home' %}" class="text-red-600 font-semibold">Home</a>
+                    <a href="{% url 'products' %}" class="text-gray-600 hover:text-red-600">Products</a>
+                    <a href="{% url 'about' %}" class="text-gray-600 hover:text-red-600">About Us</a>
+                    <a href="{% url 'testimonials' %}" class="text-gray-600 hover:text-red-600">Testimonials</a>
+                    <a href="{% url 'contact' %}" class="text-gray-600 hover:text-red-600">Contact</a>
                 </nav>
-
                 <div class="md:hidden">
                     <button class="text-gray-600">
                         <i class="fa-solid fa-bars text-2xl"></i>
@@ -354,38 +351,103 @@
         </div>
     </header>
 
-    <!-- About Hero Section -->
-    <section id="about-hero" class="pt-20 h-[600px] bg-gradient-to-r from-red-50 to-orange-50">
+    <!-- Testimonials Hero Section -->
+    <section id="testimonials-hero" class="pt-20 h-[400px] bg-gradient-to-r from-cyan-100 to-emerald-50">
         <div class="container mx-auto px-4 py-20">
-            <div class="text-center max-w-3xl mx-auto">
-                <h1 class="text-5xl font-bold text-gray-800 mb-6">Our Story</h1>
-                <p class="text-xl text-gray-600">Bringing authentic Mexican flavors and traditions to your neighborhood since 2020. We're more than just drinks – we're a celebration of culture and community.</p>
+            <div class="text-center">
+                <h1 class="text-5xl font-bold text-gray-800 mb-6">Customer Stories</h1>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Discover what our valued customers have to say about their experience with Los Compadres Mix Preparados.</p>
             </div>
         </div>
     </section>
 
-    <!-- Mission Section -->
-    <section id="mission" class="py-20">
+    <!-- Featured Testimonials -->
+    <section id="featured-testimonials" class="py-20 bg-cyan-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div id="testimonial-1" class="bg-white rounded-2xl shadow-lg p-8">
+                    <div class="flex items-center mb-6">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg" alt="Customer" class="w-16 h-16 rounded-full">
+                        <div class="ml-4">
+                            <h3 class="text-xl font-bold">Maria Rodriguez</h3>
+                            <div class="flex text-yellow-400">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"The Mangonada Supreme is absolutely incredible! The perfect balance of sweet and spicy. It reminds me of the authentic flavors from my hometown in Mexico."</p>
+                </div>
+
+                <div id="testimonial-2" class="bg-white rounded-2xl shadow-lg p-8">
+                    <div class="flex items-center mb-6">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg" alt="Customer" class="w-16 h-16 rounded-full">
+                        <div class="ml-4">
+                            <h3 class="text-xl font-bold">John Martinez</h3>
+                            <div class="flex text-yellow-400">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Best Michelada in town! The presentation is amazing and the taste is even better. The shrimp garnish takes it to another level."</p>
+                </div>
+
+                <div id="testimonial-3" class="bg-white rounded-2xl shadow-lg p-8">
+                    <div class="flex items-center mb-6">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg" alt="Customer" class="w-16 h-16 rounded-full">
+                        <div class="ml-4">
+                            <h3 class="text-xl font-bold">Sofia Garcia</h3>
+                            <div class="flex text-yellow-400">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"The Fruit Cup Deluxe is my go-to refreshment! Fresh fruits, perfect amount of chamoy, and the service is always friendly."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Testimonial -->
+    <section id="video-testimonial" class="py-20 bg-emerald-50">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-1/2">
-                    <img class="rounded-3xl shadow-2xl" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/7c44c46a0c-traditional-mexican-drink-preparation.png" alt="Traditional Mexican drink preparation process with fresh ingredients and authentic tools">
+                    <img class="rounded-3xl shadow-2xl" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/2dfc445d51-e7e4e359b2656b92f557.png" alt="Customers enjoying drinks at Los Compadres Mix">
                 </div>
                 <div class="md:w-1/2">
-                    <h2 class="text-4xl font-bold mb-6">Our Mission</h2>
-                    <p class="text-gray-600 text-lg mb-6">To share the authentic taste of Mexican beverages while creating memorable experiences for our community. We're committed to using the finest ingredients and traditional preparation methods.</p>
-                    <div id="mission-points" class="space-y-4">
-                        <div class="flex items-center gap-4">
-                            <i class="fa-solid fa-check-circle text-red-600 text-2xl"></i>
-                            <p class="text-gray-700">Quality ingredients sourced directly from Mexico</p>
+                    <h2 class="text-4xl font-bold mb-6">Our Happy Customers</h2>
+                    <div id="testimonial-stats" class="grid grid-cols-3 gap-6 mb-8">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-red-600">500+</div>
+                            <div class="text-gray-600">Happy Customers</div>
                         </div>
-                        <div class="flex items-center gap-4">
-                            <i class="fa-solid fa-check-circle text-red-600 text-2xl"></i>
-                            <p class="text-gray-700">Traditional preparation methods</p>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-red-600">4.9</div>
+                            <div class="text-gray-600">Average Rating</div>
                         </div>
-                        <div class="flex items-center gap-4">
-                            <i class="fa-solid fa-check-circle text-red-600 text-2xl"></i>
-                            <p class="text-gray-700">Commitment to authentic flavors</p>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-red-600">98%</div>
+                            <div class="text-gray-600">Would Recommend</div>
+                        </div>
+                    </div>
+                    <p class="text-xl text-gray-600 mb-8">"Los Compadres Mix has become our favorite spot for authentic Mexican drinks. The quality and presentation are consistently outstanding!"</p>
+                    <div class="flex items-center">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-7.jpg" alt="Featured Customer" class="w-12 h-12 rounded-full">
+                        <div class="ml-4">
+                            <h4 class="font-bold">Ana Morales</h4>
+                            <p class="text-gray-600">Regular Customer</p>
                         </div>
                     </div>
                 </div>
@@ -393,66 +455,8 @@
         </div>
     </section>
 
-    <!-- Values Section -->
-    <section id="values" class="py-20 bg-red-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-16">Our Values</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div id="value-1" class="bg-white rounded-2xl p-8 shadow-lg">
-                    <div class="text-red-600 mb-4">
-                        <i class="fa-solid fa-heart text-4xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Passion</h3>
-                    <p class="text-gray-600">We pour our heart into every drink we create, ensuring each customer experiences the true spirit of Mexican culture.</p>
-                </div>
-
-                <div id="value-2" class="bg-white rounded-2xl p-8 shadow-lg">
-                    <div class="text-red-600 mb-4">
-                        <i class="fa-solid fa-star text-4xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Excellence</h3>
-                    <p class="text-gray-600">We maintain the highest standards in our ingredients, preparation, and service to exceed expectations.</p>
-                </div>
-
-                <div id="value-3" class="bg-white rounded-2xl p-8 shadow-lg">
-                    <div class="text-red-600 mb-4">
-                        <i class="fa-solid fa-users text-4xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Community</h3>
-                    <p class="text-gray-600">We're dedicated to creating a welcoming space where friends and families can gather and celebrate.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section id="team" class="py-20">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-16">Meet Our Team</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div id="team-member-1" class="text-center">
-                    <img class="w-48 h-48 rounded-full mx-auto mb-6" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg" alt="Team Member">
-                    <h3 class="text-xl font-bold mb-2">Carlos Rodriguez</h3>
-                    <p class="text-gray-600">Founder & Master Mixer</p>
-                </div>
-
-                <div id="team-member-2" class="text-center">
-                    <img class="w-48 h-48 rounded-full mx-auto mb-6" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg" alt="Team Member">
-                    <h3 class="text-xl font-bold mb-2">Maria Sanchez</h3>
-                    <p class="text-gray-600">Creative Director</p>
-                </div>
-
-                <div id="team-member-3" class="text-center">
-                    <img class="w-48 h-48 rounded-full mx-auto mb-6" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg" alt="Team Member">
-                    <h3 class="text-xl font-bold mb-2">Juan Martinez</h3>
-                    <p class="text-gray-600">Operations Manager</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer remains exactly the same -->
-    <footer id="footer" class="bg-gray-900 text-white py-12">
+    <!-- Footer with updated background -->
+    <footer id="footer" class="bg-blue-900 text-white py-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div id="footer-about">
