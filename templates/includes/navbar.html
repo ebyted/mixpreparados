@@ -1,0 +1,30 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold text-danger" href="{% url 'home' %}">Mix Preparados</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == '/' %}active text-primary fw-bold{% endif %}" href="{% url 'home' %}">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == '/products/' %}active text-primary fw-bold{% endif %}" href="{% url 'products' %}">Productos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == '/about/' %}active text-primary fw-bold{% endif %}" href="{% url 'about' %}">Nosotros</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == '/testimonials/' %}active text-primary fw-bold{% endif %}" href="{% url 'testimonials' %}">Testimonios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == '/contact/' %}active text-primary fw-bold{% endif %}" href="{% url 'contact' %}">Contacto</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
