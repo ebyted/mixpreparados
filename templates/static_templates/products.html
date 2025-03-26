@@ -1,3 +1,4 @@
+
 <html class="">
               
 <head>
@@ -326,16 +327,14 @@
 </head>
 
               <body class="h-full text-base-content">
-                <div id="main-container" class="min-h-screen bg-teal-50">
-    <!-- Header -->
+                <div class="min-h-screen bg-white">
+    <!-- Header remains the same -->
     <header id="header" class="fixed w-full bg-white shadow-md z-50">
         <div class="container mx-auto px-4">
             <div class="flex items-center justify-between h-20">
-                <div id="logo" class="flex items-center">
-                    <img class="h-12 w-auto" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/7f88a60ff4-d53487f517867e0bcb9c.png" alt="modern mexican restaurant logo with vibrant colors, minimalist design">
-                    <span class="ml-2 text-2xl font-bold text-red-600">Los Compadres</span>
+                <div class="flex-shrink-0">
+                    <img class="h-16 w-auto" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/09463ac7d5-000c29494d5127c13cd1.png" alt="Los Compadres Mix logo">
                 </div>
-                
                 <nav class="hidden md:flex space-x-8">
                     <a href="{% url 'home' %}" class="text-red-600 font-semibold">Home</a>
                     <a href="{% url 'products' %}" class="text-gray-600 hover:text-red-600">Products</a>
@@ -343,7 +342,6 @@
                     <a href="{% url 'testimonials' %}" class="text-gray-600 hover:text-red-600">Testimonials</a>
                     <a href="{% url 'contact' %}" class="text-gray-600 hover:text-red-600">Contact</a>
                 </nav>
-                
                 <div class="md:hidden">
                     <button class="text-gray-600">
                         <i class="fa-solid fa-bars text-2xl"></i>
@@ -353,131 +351,121 @@
         </div>
     </header>
 
-    <!-- Contact Hero Section -->
-    <section id="contact-hero" class="pt-20 bg-gradient-to-r from-teal-50 to-cyan-50">
-        <div class="container mx-auto px-4 py-16">
-            <div class="text-center max-w-3xl mx-auto">
-                <h1 class="text-5xl font-bold text-gray-800 mb-6">Get in Touch</h1>
-                <p class="text-xl text-gray-600">We'd love to hear from you! Reach out for questions, catering inquiries, or feedback.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Information Section -->
-    <section id="contact-info" class="py-16">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                <div id="contact-card-1" class="bg-white rounded-xl shadow-lg p-8 text-center">
-                    <div class="text-red-600 mb-4">
-                        <i class="fa-solid fa-location-dot text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Visit Us</h3>
-                    <p class="text-gray-600">123 Fiesta Street<br>San Antonio, TX 78205</p>
+    <!-- Product Carousel Section -->
+    <section id="product-carousel" class="pt-20">
+        <div class="container mx-auto px-4 py-20">
+            <h2 class="text-4xl font-bold text-center mb-12">Featured Products</h2>
+            
+            <div id="carousel-container" class="relative">
+                <!-- Carousel Navigation -->
+                <div class="absolute top-1/2 -translate-y-1/2 left-4 z-10">
+                    <button class="bg-white p-3 rounded-full shadow-lg hover:bg-gray-100">
+                        <i class="fa-solid fa-chevron-left text-2xl text-blue-600"></i>
+                    </button>
+                </div>
+                <div class="absolute top-1/2 -translate-y-1/2 right-4 z-10">
+                    <button class="bg-white p-3 rounded-full shadow-lg hover:bg-gray-100">
+                        <i class="fa-solid fa-chevron-right text-2xl text-blue-600"></i>
+                    </button>
                 </div>
 
-                <div id="contact-card-2" class="bg-white rounded-xl shadow-lg p-8 text-center">
-                    <div class="text-red-600 mb-4">
-                        <i class="fa-solid fa-phone text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Call Us</h3>
-                    <p class="text-gray-600">(555) 123-4567<br>Mon-Sun: 10AM - 10PM</p>
-                </div>
-
-                <div id="contact-card-3" class="bg-white rounded-xl shadow-lg p-8 text-center">
-                    <div class="text-red-600 mb-4">
-                        <i class="fa-solid fa-envelope text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Email Us</h3>
-                    <p class="text-gray-600">info@loscompadres.com<br>catering@loscompadres.com</p>
-                </div>
-            </div>
-
-            <!-- Contact Form -->
-            <div id="contact-form" class="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-8">
-                <h2 class="text-3xl font-bold text-center mb-8">Send Us a Message</h2>
-                <form class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-gray-700 mb-2">First Name</label>
-                            <input type="text" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600">
-                        </div>
-                        <div>
-                            <label class="block text-gray-700 mb-2">Last Name</label>
-                            <input type="text" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600">
+                <!-- Carousel Slides -->
+                <div id="carousel-slides" class="relative h-[600px] overflow-hidden rounded-3xl">
+                    <!-- Slide 1 -->
+                    <div id="slide-1" class="absolute inset-0 flex items-center justify-center bg-gradient-to-r from-blue-50 to-green-50">
+                        <div class="container mx-auto px-4 flex items-center">
+                            <div class="w-1/2 pr-12">
+                                <h3 class="text-4xl font-bold mb-6">Mangonada Supreme</h3>
+                                <p class="text-xl text-gray-600 mb-8">Experience the perfect blend of sweet mango, tangy chamoy, and spicy tajin in our signature Mangonada.</p>
+                                <div class="flex items-center gap-6 mb-8">
+                                    <span class="text-3xl font-bold text-blue-600">$8.99</span>
+                                    <button class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700">
+                                        Order Now
+                                    </button>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <i class="fa-solid fa-pepper-hot text-blue-600"></i>
+                                    <span class="text-gray-600">Spice Level: Medium</span>
+                                </div>
+                            </div>
+                            <div class="w-1/2">
+                                <img class="rounded-3xl shadow-2xl" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/256689de4a-82c16aa6c077b32fc432.png" alt="Mangonada Supreme">
+                            </div>
                         </div>
                     </div>
-                    <div>
-                        <label class="block text-gray-700 mb-2">Email Address</label>
-                        <input type="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600">
-                    </div>
-                    <div>
-                        <label class="block text-gray-700 mb-2">Subject</label>
-                        <select class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600">
-                            <option>General Inquiry</option>
-                            <option>Catering Services</option>
-                            <option>Feedback</option>
-                            <option>Other</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-gray-700 mb-2">Message</label>
-                        <textarea rows="6" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600"></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button class="bg-red-600 text-white px-8 py-3 rounded-full hover:bg-red-700 transition">
-                            Send Message <i class="fa-solid fa-paper-plane ml-2"></i>
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
 
-    <!-- Map Section -->
-    <section id="map-section" class="py-16 bg-teal-100/30">
-        <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto">
-                <h2 class="text-3xl font-bold text-center mb-8">Find Us Here</h2>
-                <div class="rounded-2xl overflow-hidden shadow-lg h-[400px] bg-gray-200">
-                    <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/7309af88bd-89b319a5751a9c10984b.png" alt="map view of san antonio downtown area with location marker, satellite view" >
+                    <!-- Carousel Indicators -->
+                    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3">
+                        <button class="w-3 h-3 rounded-full bg-blue-600"></button>
+                        <button class="w-3 h-3 rounded-full bg-gray-300"></button>
+                        <button class="w-3 h-3 rounded-full bg-gray-300"></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Quick Links -->
+            <div id="quick-links" class="grid grid-cols-3 gap-8 mt-12">
+                <div id="quick-link-1" class="bg-blue-50 rounded-xl p-6 shadow-lg flex items-center gap-4 cursor-pointer hover:shadow-xl transition">
+                    <img class="w-20 h-20 rounded-lg object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/256689de4a-82c16aa6c077b32fc432.png" alt="Mangonada">
+                    <div>
+                        <h4 class="font-bold">Mangonada Supreme</h4>
+                        <p class="text-gray-600">Fresh & Spicy</p>
+                    </div>
+                </div>
+                <div id="quick-link-2" class="bg-green-50 rounded-xl p-6 shadow-lg flex items-center gap-4 cursor-pointer hover:shadow-xl transition">
+                    <img class="w-20 h-20 rounded-lg object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/e038101ed7-53634b16dfee36034aa9.png" alt="Michelada">
+                    <div>
+                        <h4 class="font-bold">Michelada Especial</h4>
+                        <p class="text-gray-600">Bold & Savory</p>
+                    </div>
+                </div>
+                <div id="quick-link-3" class="bg-blue-50 rounded-xl p-6 shadow-lg flex items-center gap-4 cursor-pointer hover:shadow-xl transition">
+                    <img class="w-20 h-20 rounded-lg object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/3224244edf-8d3f5ae3fcef5cbbb55d.png" alt="Fruit Cup">
+                    <div>
+                        <h4 class="font-bold">Fruit Cup Deluxe</h4>
+                        <p class="text-gray-600">Fresh & Sweet</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer id="footer" class="bg-blue-900 text-white py-12">
+    <!-- Footer remains the same -->
+    <footer id="footer" class="bg-gray-900 text-white py-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div id="footer-about">
-                    <h3 class="text-xl font-bold mb-4">Los Compadres</h3>
-                    <p class="text-gray-400">Authentic Mexican preparados made with love and tradition.</p>
-                </div>
-                <div id="footer-links">
-                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><span class="text-gray-400 hover:text-white cursor-pointer">Menu</span></li>
-                        <li><span class="text-gray-400 hover:text-white cursor-pointer">Locations</span></li>
-                        <li><span class="text-gray-400 hover:text-white cursor-pointer">Catering</span></li>
-                    </ul>
+                    <h4 class="text-xl font-bold mb-4">Los Compadres Mix</h4>
+                    <p class="text-gray-400">Bringing authentic Mexican flavors to your celebrations since 2020.</p>
                 </div>
                 <div id="footer-contact">
-                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
-                    <ul class="space-y-2">
-                        <li class="text-gray-400"><i class="fa-solid fa-phone mr-2"></i> (555) 123-4567</li>
-                        <li class="text-gray-400"><i class="fa-solid fa-envelope mr-2"></i> info@loscompadres.com</li>
-                    </ul>
+                    <h4 class="text-xl font-bold mb-4">Contact Us</h4>
+                    <p class="text-gray-400">123 Fiesta Street</p>
+                    <p class="text-gray-400">San Antonio, TX 78205</p>
+                    <p class="text-gray-400">(210) 555-0123</p>
+                </div>
+                <div id="footer-hours">
+                    <h4 class="text-xl font-bold mb-4">Hours</h4>
+                    <p class="text-gray-400">Mon-Thu: 11AM - 9PM</p>
+                    <p class="text-gray-400">Fri-Sat: 11AM - 11PM</p>
+                    <p class="text-gray-400">Sun: 12PM - 8PM</p>
                 </div>
                 <div id="footer-social">
-                    <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+                    <h4 class="text-xl font-bold mb-4">Follow Us</h4>
                     <div class="flex space-x-4">
-                        <span class="text-gray-400 hover:text-white cursor-pointer"><i class="fa-brands fa-facebook text-2xl"></i></span>
-                        <span class="text-gray-400 hover:text-white cursor-pointer"><i class="fa-brands fa-instagram text-2xl"></i></span>
-                        <span class="text-gray-400 hover:text-white cursor-pointer"><i class="fa-brands fa-twitter text-2xl"></i></span>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fa-brands fa-facebook text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fa-brands fa-instagram text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fa-brands fa-tiktok text-2xl"></i>
+                        </a>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-blue-800 mt-8 pt-8 text-center text-gray-400">
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
                 <p>&copy; 2025 Los Compadres Mix Preparados. All rights reserved.</p>
             </div>
         </div>
