@@ -1,0 +1,77 @@
+{% load static %}  {# Si tienes archivos estáticos, asegúrate de cargar static para Tailwind CSS #}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registro de Usuario</title>
+  <link href="{% static 'css/tailwind.css' %}" rel="stylesheet">  {# Ruta al CSS de Tailwind #}
+</head>
+<body class="bg-gray-100">
+  <div class="min-h-screen flex items-center justify-center">  
+    <div class="bg-white shadow-md rounded px-8 py-6 w-full max-w-md">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Crear cuenta</h2>
+      <form method="POST" novalidate>
+        {% csrf_token %}
+        <!-- Campo de Nombre de Usuario -->
+        <div class="mb-4">
+          <label for="id_username" class="block text-gray-700 text-sm font-medium mb-1">
+            Nombre de usuario
+          </label>
+          <input type="text" name="username" id="id_username" 
+                 class="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                 placeholder="Tu nombre de usuario" required />
+          {% for error in form.username.errors %}
+            <p class="text-red-500 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+        <!-- Campo de Email -->
+        <div class="mb-4">
+          <label for="id_email" class="block text-gray-700 text-sm font-medium mb-1">
+            Correo electrónico
+          </label>
+          <input type="email" name="email" id="id_email" 
+                 class="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                 placeholder="tu@email.com" required />
+          {% for error in form.email.errors %}
+            <p class="text-red-500 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+        <!-- Campo de Contraseña -->
+        <div class="mb-4">
+          <label for="id_password1" class="block text-gray-700 text-sm font-medium mb-1">
+            Contraseña
+          </label>
+          <input type="password" name="password1" id="id_password1" 
+                 class="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                 placeholder="Contraseña" required />
+          {% for error in form.password1.errors %}
+            <p class="text-red-500 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+        <!-- Campo de Confirmación de Contraseña -->
+        <div class="mb-6">
+          <label for="id_password2" class="block text-gray-700 text-sm font-medium mb-1">
+            Confirmar contraseña
+          </label>
+          <input type="password" name="password2" id="id_password2" 
+                 class="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                 placeholder="Repite la contraseña" required />
+          {% for error in form.password2.errors %}
+            <p class="text-red-500 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% if form.non_field_errors %}
+          {% for error in form.non_field_errors %}
+            <p class="text-red-500 text-sm mb-4">{{ error }}</p>
+          {% endfor %}
+        {% endif %}
+        <!-- Botón de Registro -->
+        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-md focus:outline-none focus:ring-4 focus:ring-blue-200">
+          Registrarse
+        </button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
