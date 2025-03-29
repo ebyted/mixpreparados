@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 
-app_name = 'cart'
+app_name = 'cart'  # 👈 Esto es clave para el namespace
 
 urlpatterns = [
     path('', views.cart_view, name='cart_view'),

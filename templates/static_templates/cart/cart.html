@@ -51,7 +51,7 @@
               <!-- Aquí puedes poner botones para editar cantidad o eliminar si quieres -->
               <div class="flex items-center gap-2 mt-4">
                 <!-- Botón para disminuir cantidad -->
-                <form action="{% url 'decrease_quantity' item.id %}" method="post">
+                <form action="{% url 'cart:decrease_quantity' item.id %}" method="post">
                   {% csrf_token %}
                   <button type="submit" class="px-3 py-1 bg-red-200 hover:bg-red-300 text-red-800 rounded">
                     <i class="fas fa-minus"></i>
@@ -62,7 +62,7 @@
                 <span class="px-4 font-semibold text-gray-700">{{ item.quantity }}</span>
               
                 <!-- Botón para aumentar cantidad -->
-                <form action="{% url 'increase_quantity' item.id %}" method="post">
+                <form action="{% url 'cart:increase_quantity' item.id %}" method="post">
                   {% csrf_token %}
                   <button type="submit" class="px-3 py-1 bg-green-200 hover:bg-green-300 text-green-800 rounded">
                     <i class="fas fa-plus"></i>
@@ -70,7 +70,7 @@
                 </form>
               
                 <!-- Botón para eliminar -->
-                <form action="{% url 'remove_item' item.id %}" method="post">
+                <form action="{% url 'cart:remove_item' item.id %}" method="post">
                   {% csrf_token %}
                   <button type="submit" class="ml-4 px-3 py-1 bg-gray-300 hover:bg-gray-400 text-gray-800 rounded">
                     <i class="fas fa-trash-alt"></i>

@@ -6,7 +6,7 @@ from .models import CartItem
 def cart_view(request):
     items = CartItem.objects.filter(user=request.user)
     total = sum(item.subtotal() for item in items)
-    return render(request, 'cart/cart.html', {
+    return render(request, 'static_templates/cart/cart.html', {
         'cart_items': items,
         'total': total
     })
