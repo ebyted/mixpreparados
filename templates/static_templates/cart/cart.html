@@ -84,9 +84,12 @@
 
       <div class="mt-8 text-right">
         <h2 class="text-2xl font-bold text-gray-800">Total: ${{ total }}</h2>
-        <button class="mt-4 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
-          Proceder al Pago
-        </button>
+        <form action="{% url 'cart:checkout' %}" method="post">
+          {% csrf_token %}
+          <button type="submit" class="mt-4 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
+            Proceder al Pago
+          </button>
+        </form>
       </div>
     {% else %}
       <p class="text-center text-gray-500 text-lg mt-12">Tu carrito está vacío 🛒</p>

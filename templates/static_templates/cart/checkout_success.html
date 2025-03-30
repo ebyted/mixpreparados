@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>¡Gracias por tu compra!</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&display=swap">
+  <style>
+    * {
+      font-family: 'Inter', sans-serif;
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+  <header class="fixed w-full bg-white shadow z-50">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between h-20">
+        <div class="flex-shrink-0">
+          <img class="h-16" src="{% static 'images/logo.png' %}" alt="Logo Mix Preparados">
+        </div>
+        <nav class="hidden md:flex space-x-8">
+          <a href="{% url 'home' %}" class="text-red-600 font-semibold">Inicio</a>
+          <a href="{% url 'products' %}" class="hover:text-red-600">Productos</a>
+          <a href="{% url 'about' %}" class="hover:text-red-600">Nosotros</a>
+          <a href="{% url 'testimonials' %}" class="hover:text-red-600">Testimonios</a>
+          <a href="{% url 'contact' %}" class="hover:text-red-600">Contacto</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="pt-28 container mx-auto px-4 text-center">
+    <h1 class="text-5xl font-extrabold text-green-600 mb-6">¡Gracias por tu compra! 🎉</h1>
+    <p class="text-lg text-gray-600 mb-12">Tu pedido ha sido procesado correctamente. Prepárate para disfrutar lo mejor de Mix Preparados.</p>
+    <a href="{% url 'products' %}" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg">
+      Volver a Productos
+    </a>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white mt-20 py-12 text-center">
+    <p>&copy; 2025 Mix Preparados. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
