@@ -1,6 +1,6 @@
-from django.urls import path 
-from .views import about
+from django.urls import path
+from .views_static import AboutStaticView
 
 urlpatterns = [
-    path('', about, name='about'),
+    path('', AboutStaticView.as_view(), name='about'),
 ]
