@@ -7,7 +7,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('pages.urls')),  # esta línea lo conecta todo
     path('cart/', include('cart.urls', namespace='cart')),
-    path('accounts/', include('accounts.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('products/', include('products.urls')),
 ]
 
 # Esto sirve las imágenes subidas en modo desarrollo
