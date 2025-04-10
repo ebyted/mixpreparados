@@ -1,3 +1,4 @@
+{% load static %}
 <html lang="en" class="">
 
 <head>
@@ -336,7 +337,7 @@
             <div class="flex items-center justify-between h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0">
-                    <img class="h-16 w-auto" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/09463ac7d5-000c29494d5127c13cd1.png" alt="modern logo design for Los Compadres Mix featuring vibrant Mexican colors and a stylized drink icon, minimalist" >
+                    <img class="h-16 w-auto" src="{% static 'images/mixpreparadosfj2.png' %}" alt="El Compadre Mix Preparados Logo">
                 </div>
                 
                 <!-- Navigation -->
@@ -365,9 +366,9 @@
                 <div class="md:w-1/2 mb-10 md:mb-0">
                     <h1 class="text-5xl font-bold text-gray-800 mb-6">Experience Authentic Mexican Flavors</h1>
                     <p class="text-xl text-gray-600 mb-8">Discover our handcrafted mix preparados, bringing the taste of Mexico to your celebrations.</p>
-                    <button class="bg-red-600 text-white px-8 py-4 rounded-full hover:bg-red-700 transition">
+                    <a href="{% url 'products' %}" class="bg-red-600 text-white px-8 py-4 rounded-full hover:bg-red-700 transition inline-block">
                         Explore Our Menu
-                    </button>
+                    </a>
                 </div>
                 <div class="md:w-1/2">
                     <img class="rounded-3xl shadow-2xl" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/9ce0a5487b-4075b5b9ceacc190991f.png" alt="professional photo of colorful Mexican drink with fruits and chamoy rim, garnished with tamarind candy and fresh lime" >
@@ -486,4 +487,3 @@
 </div>
               </body>
             </html>
-          
