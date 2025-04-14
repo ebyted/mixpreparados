@@ -1,6 +1,6 @@
 from django.urls import path
-from .views_static import TestimonialsStaticView
+from .views import testimonios_view  # <-- asegúrate de importar esta vista
 
 urlpatterns = [
-    path('', TestimonialsStaticView.as_view(), name='testimonials'),
+    path('', testimonios_view, name='testimonials'),  # <-- Aquí cambiamos a la función que renderiza el formulario
 ]

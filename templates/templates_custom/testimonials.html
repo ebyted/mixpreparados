@@ -419,6 +419,59 @@
         </div>
     </section>
 
+</section> <!-- Cierre de featured-testimonials -->
+
+<!-- Testimonial Submission Form -->
+<section id="testimonial-form" class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="max-w-2xl mx-auto bg-gray-50 rounded-2xl p-8 shadow-md">
+      <h2 class="text-3xl font-bold text-center mb-6 text-gray-800">Share Your Experience</h2>
+      <form method="post" enctype="multipart/form-data" class="bg-white p-6 rounded-2xl shadow-lg max-w-2xl mx-auto mt-10">
+        {% csrf_token %}
+        
+        {{ form.non_field_errors }}
+        
+        <div class="mb-4">
+            <label for="id_nombre" class="block font-semibold text-gray-700">Nombre</label>
+            {{ form.nombre }}
+            {{ form.nombre.errors }}
+        </div>
+        
+        <div class="mb-4">
+            <label for="id_comentario" class="block font-semibold text-gray-700">Comentario</label>
+            {{ form.comentario }}
+            {{ form.comentario.errors }}
+        </div>
+    
+        <div class="mb-4">
+            <label for="id_calificacion" class="block font-semibold text-gray-700">Calificación (1 a 5)</label>
+            {{ form.calificacion }}
+            {{ form.calificacion.errors }}
+        </div>
+    
+        <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full transition">Enviar Testimonio</button>
+    </form>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const stars = document.querySelectorAll('[data-value]');
+      const input = document.querySelector('input[name="calificacion"]');
+      stars.forEach(star => {
+        star.addEventListener('click', () => {
+          const value = star.getAttribute('data-value');
+          input.value = value;
+          stars.forEach(s => s.classList.remove('fa-solid'));
+          for (let i = 0; i < value; i++) {
+            stars[i].classList.add('fa-solid');
+          }
+        });
+      });
+    });
+  </script>
+</section>
+
     <!-- Video Testimonial -->
     <section id="video-testimonial" class="py-20 bg-emerald-50">
         <div class="container mx-auto px-4">
