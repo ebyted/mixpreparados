@@ -1,4 +1,5 @@
 {% load static %}
+{% load form_filters %}
 <html class="">
               
 <head>
@@ -361,152 +362,112 @@
         </div>
     </section>
 
-    <!-- Featured Testimonials -->
-    <section id="featured-testimonials" class="py-20 bg-cyan-50">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div id="testimonial-1" class="bg-white rounded-2xl shadow-lg p-8">
-                    <div class="flex items-center mb-6">
-                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg" alt="Customer" class="w-16 h-16 rounded-full">
-                        <div class="ml-4">
-                            <h3 class="text-xl font-bold">Maria Rodriguez</h3>
-                            <div class="flex text-yellow-400">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600">"The Mangonada Supreme is absolutely incredible! The perfect balance of sweet and spicy. It reminds me of the authentic flavors from my hometown in Mexico."</p>
+<!-- Testimonials from database -->
+<section id="featured-testimonials" class="py-20 bg-cyan-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-[#886504] mb-12">Lo que dicen nuestros clientes</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {% for testimonio in testimonios %}
+          <div class="bg-white rounded-2xl shadow-lg p-8">
+            <div class="flex items-center mb-6">
+              {% if testimonio.photo %}
+                <img src="{{ testimonio.photo.url }}" alt="{{ testimonio.name }}" class="w-16 h-16 rounded-full object-cover">
+              {% else %}
+                <img src="https://ui-avatars.com/api/?name={{ testimonio.name|urlencode }}" alt="{{ testimonio.name }}" class="w-16 h-16 rounded-full">
+              {% endif %}
+              <div class="ml-4">
+                <h3 class="text-xl font-bold text-[#5B701B]">{{ testimonio.name }}</h3>
+                <div class="flex text-yellow-400">
+                  {% for i in "12345"|slice:":testimonio.rating"|make_list %}
+                    <i class="fa-solid fa-star"></i>
+                  {% endfor %}
+                  {% for i in "12345"|slice:"testimonio.rating:"|make_list %}
+                    <i class="fa-regular fa-star"></i>
+                  {% endfor %}
                 </div>
-
-                <div id="testimonial-2" class="bg-white rounded-2xl shadow-lg p-8">
-                    <div class="flex items-center mb-6">
-                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg" alt="Customer" class="w-16 h-16 rounded-full">
-                        <div class="ml-4">
-                            <h3 class="text-xl font-bold">John Martinez</h3>
-                            <div class="flex text-yellow-400">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600">"Best Michelada in town! The presentation is amazing and the taste is even better. The shrimp garnish takes it to another level."</p>
-                </div>
-
-                <div id="testimonial-3" class="bg-white rounded-2xl shadow-lg p-8">
-                    <div class="flex items-center mb-6">
-                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg" alt="Customer" class="w-16 h-16 rounded-full">
-                        <div class="ml-4">
-                            <h3 class="text-xl font-bold">Sofia Garcia</h3>
-                            <div class="flex text-yellow-400">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600">"The Fruit Cup Deluxe is my go-to refreshment! Fresh fruits, perfect amount of chamoy, and the service is always friendly."</p>
-                </div>
+              </div>
             </div>
-        </div>
-    </section>
-
-</section> <!-- Cierre de featured-testimonials -->
-
-<!-- Testimonial Submission Form -->
-<section id="testimonial-form" class="py-20 bg-white">
-  <div class="container mx-auto px-4">
-    <div class="max-w-2xl mx-auto bg-gray-50 rounded-2xl p-8 shadow-md">
-      <h2 class="text-3xl font-bold text-center mb-6 text-gray-800">Share Your Experience</h2>
-      <form method="post" enctype="multipart/form-data" class="bg-white p-6 rounded-2xl shadow-lg max-w-2xl mx-auto mt-10">
-        {% csrf_token %}
-        
-        {{ form.non_field_errors }}
-        
-        <div class="mb-4">
-            <label for="id_nombre" class="block font-semibold text-gray-700">Nombre</label>
-            {{ form.nombre }}
-            {{ form.nombre.errors }}
-        </div>
-        
-        <div class="mb-4">
-            <label for="id_comentario" class="block font-semibold text-gray-700">Comentario</label>
-            {{ form.comentario }}
-            {{ form.comentario.errors }}
-        </div>
-    
-        <div class="mb-4">
-            <label for="id_calificacion" class="block font-semibold text-gray-700">Calificación (1 a 5)</label>
-            {{ form.calificacion }}
-            {{ form.calificacion.errors }}
-        </div>
-    
-        <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full transition">Enviar Testimonio</button>
-    </form>
+            <p class="text-gray-600">"{{ testimonio.comment }}"</p>
+          </div>
+        {% empty %}
+          <p class="text-center text-gray-500 col-span-3">Aún no hay testimonios. ¡Sé el primero en compartir tu experiencia!</p>
+        {% endfor %}
+      </div>
     </div>
-  </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const stars = document.querySelectorAll('[data-value]');
-      const input = document.querySelector('input[name="calificacion"]');
-      stars.forEach(star => {
-        star.addEventListener('click', () => {
-          const value = star.getAttribute('data-value');
-          input.value = value;
-          stars.forEach(s => s.classList.remove('fa-solid'));
-          for (let i = 0; i < value; i++) {
-            stars[i].classList.add('fa-solid');
-          }
-        });
-      });
-    });
-  </script>
-</section>
-
-    <!-- Video Testimonial -->
-    <section id="video-testimonial" class="py-20 bg-emerald-50">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center gap-12">
-                <div class="md:w-1/2">
-                    <img class="rounded-3xl shadow-2xl" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/2dfc445d51-e7e4e359b2656b92f557.png" alt="Customers enjoying drinks at Los Compadres Mix">
+  </section>
+  <!-- Testimonial Submission Form -->
+<section id="testimonial-form" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-2xl mx-auto bg-gray-50 rounded-2xl p-8 shadow-md">
+        <h2 class="text-3xl font-bold text-center mb-6 text-[#886504]">Comparte tu experiencia</h2>
+  
+        <form method="post" enctype="multipart/form-data" class="space-y-6">
+          {% csrf_token %}
+          {{ form.non_field_errors }}
+  
+          <div>
+            <label for="id_name" class="block text-[#5B701B] font-semibold mb-1">Nombre</label>
+            {{ form.name|add_class:"w-full border border-gray-300 px-4 py-2 rounded-lg" }}
+            {{ form.name.errors }}
+          </div>
+  
+          <div>
+            <label for="id_comment" class="block text-[#5B701B] font-semibold mb-1">Comentario</label>
+            {{ form.comment|add_class:"w-full border border-gray-300 px-4 py-2 rounded-lg" }}
+            {{ form.comment.errors }}
+          </div>
+  
+          <div>
+            <label for="id_rating" class="block text-[#5B701B] font-semibold mb-1">Calificación (1 a 5)</label>
+            {{ form.rating|add_class:"w-full border border-gray-300 px-4 py-2 rounded-lg" }}
+            {{ form.rating.errors }}
+          </div>
+  
+          <div>
+            <label for="id_photo" class="block text-[#5B701B] font-semibold mb-1">Foto (opcional)</label>
+            {{ form.photo|add_class:"w-full border border-gray-300 px-4 py-2 rounded-lg" }}
+            {{ form.photo.errors }}
+          </div>
+  
+          <div class="text-center">
+            <button type="submit" class="bg-[#faba04] hover:bg-[#886504] text-white px-6 py-3 rounded-lg transition">Enviar Testimonio</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <section class="mt-16 bg-[#fff9e8] py-10">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-bold text-center text-[#5B701B] mb-8">Testimonios de Clientes</h2>
+  
+      <div class="grid md:grid-cols-3 gap-6">
+        {% for t in testimonios %}
+          <div class="bg-white rounded-xl shadow-md p-6">
+            <div class="flex items-center gap-4 mb-3">
+              {% if t.photo %}
+                <img src="{{ t.photo.url }}" alt="{{ t.name }}" class="w-14 h-14 rounded-full object-cover">
+              {% else %}
+                <div class="w-14 h-14 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 font-bold">
+                  {{ t.name|slice:":1"|upper }}
                 </div>
-                <div class="md:w-1/2">
-                    <h2 class="text-4xl font-bold mb-6">Our Happy Customers</h2>
-                    <div id="testimonial-stats" class="grid grid-cols-3 gap-6 mb-8">
-                        <div class="text-center">
-                            <div class="text-4xl font-bold text-red-600">500+</div>
-                            <div class="text-gray-600">Happy Customers</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-4xl font-bold text-red-600">4.9</div>
-                            <div class="text-gray-600">Average Rating</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-4xl font-bold text-red-600">98%</div>
-                            <div class="text-gray-600">Would Recommend</div>
-                        </div>
-                    </div>
-                    <p class="text-xl text-gray-600 mb-8">"Los Compadres Mix has become our favorite spot for authentic Mexican drinks. The quality and presentation are consistently outstanding!"</p>
-                    <div class="flex items-center">
-                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-7.jpg" alt="Featured Customer" class="w-12 h-12 rounded-full">
-                        <div class="ml-4">
-                            <h4 class="font-bold">Ana Morales</h4>
-                            <p class="text-gray-600">Regular Customer</p>
-                        </div>
-                    </div>
-                </div>
+              {% endif %}
+              <div>
+                <p class="font-semibold text-[#886504]">{{ t.name }}</p>
+                <p class="text-yellow-500">
+                  {% for _ in "12345"|slice:":t.rating" %}
+                    <i class="fa-solid fa-star"></i>
+                  {% endfor %}
+                </p>
+              </div>
             </div>
-        </div>
-    </section>
+            <p class="text-[#8c847c] text-sm">"{{ t.comment }}"</p>
+          </div>
+        {% empty %}
+          <p class="text-center text-gray-600 col-span-3">No hay testimonios aún.</p>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
 
     <!-- Footer with updated background -->
     <footer id="footer" class="bg-blue-900 text-white py-12">

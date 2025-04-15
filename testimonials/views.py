@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import TestimonioForm
+from django.contrib import messages  
 from .models import Testimonial
 
 def testimonios_view(request):
