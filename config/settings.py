@@ -90,7 +90,7 @@ DATABASES = {
         'NAME': 'mixpreparados_db',
         'USER': 'postgres',
         'PASSWORD': 'shivah',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': '5432',
         'OPTIONS': {
             'client_encoding': 'UTF8',  # Ensures correct encoding
