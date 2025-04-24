@@ -1,3 +1,4 @@
+  .env
     .MERGE_MSG.swp
     COMMIT_EDITMSG
     config
@@ -28,6 +29,7 @@
             htmls
             main
         2d6c20f37fbf43546458cab8fd746b8ae7a1a4
+        7df32df737c7de08e8e7684ea82527cad69ada
         e9f27e0cbc62d530dcf6e76e17006dd9480304
         7f09a30082b593144e8db0264ac24e5cdb9a55
         dbc707f8e8d9232326bb6d2d5f7218dd51196f
@@ -46,6 +48,7 @@
         a52f1735dc04ce48361a70cf28afbb02917465
         df1812084090088469368d63940d8f9b127116
         60b959bc94696d22f6650ebfb8ef2a6da88ccf
+        3c833e921a6f57a6bf16c047718f8884eca73c
         85d17552889e58950406b201236b13adb4d2c4
         dc4734cf26dc78c12bce2a73c4820a780546a2
         0637598e0b2b62c1055fd5340f74ad272f69f1
@@ -60,18 +63,21 @@
         dc0a9d7afba5ee6e85dd6e0fb5ebbd95f9ce1a
         ecc3cd729c1a1593ce91fd90d0f1530be1dedb
         1e3ec5623732132f09a1b4be764b3210bc4b0e
+        5eefabf61d303c438a699ee3e138a327339fac
         2cf4cfe2a21c1f57771bebd5128c2f400ffe55
         8b6e56ed55300395a2bbade937b9b3727c6caf
         1649a361523574bae9807cdf28acaeff246dd4
         266602f4ead0ea81d407530c08f078a783dc31
         5cdf8542d8bcecf958d053f0a605a810add854
         72306fe10eb44da939cd1629370b0f802d64cd
+        7221df80758866bcf4d3d52d66ec99e46a6cd8
         ae07847a3a882c8edaedb2bbcb7d8adc9ff444
         2d89ac46c8e20b342b1f10558b968f30b5826e
         36e011fc4ba58d79fe8d227f672ba8d624b76b
         3111df3ae27cf507684284e6897968446b5272
         f6d232a4c9b6153adac484589614c2ec6d93bd
         38d7f2554965a1556376447d14fa8e1e93d149
+        5c83cb1ea0c8a096de81732f3f1fae142e3c17
         7b73d4d52fdb27cc1401c70c24fe6728195626
         c04c9b25da2ed4bc514c97553d61a291831ccf
         fdf82822115be5f219079a9e6e24d2fe03047f
@@ -106,6 +112,7 @@
         a6e62312b11cbd51556a2a7b63ab8f2dc8c958
         c199d0b05c0d4c9ff9777fead50a37b7aca39e
         d329220d6eb8cfeed6f117e92ffa2c32049c9a
+        62e854a3f875c9dc87821c4e5b52d580a87869
         cbb49e78b829509dbc946bdd027dd8a1a38193
         5cd8771421988274e68d4e44fd48a72f81fd5b
         daa7d943e404f02c19f34f695d00db6176dd3a
@@ -142,6 +149,7 @@
         fecbd490531a86bf2e803665259be71e560d61
         cd1277ca0f77a75bd30d81b6eb1f71479ec05f
         d281d17d391279664e97eae34cfc8b65c16dc7
+        ec1b85ebd809c3c88a4d0baea4ca1299134bdf
         a810c8368f476f4f730ad6f55552ff364c627c
         63c01888f20c01961e2c867bda432447740ce3
         8f21dde3f6b4f6c80f3423e45d28422436cb42
@@ -204,6 +212,7 @@
         e503c2dd97ba78597f6ff6e4393132753573f6
         0b027115223f1aa4a82af06adb24d6bbf72a06
         0b1e5e442560b05b56ab6a2a9a4261f04bd530
+        a7b57c2b43c57ead84557b53fef9c170adcb12
         278e2cdb2412d53fede1e505f9e6e06281a8b7
         a7e85e5c00c324f115ec5f008dfed2c0c7f870
         64acd7d637fed4ee09a3e5ae3902960dab5bb8
@@ -230,6 +239,7 @@
         7ac79b9576cb38f460147ec7f3ade64a100c62
         2892b4f09b5689d30cb5744d8aed6e3ad20ea6
         5c1f40f86ff9b3d48dca0656c1b922c2268e4a
+        33e379206db924ff8eaa5750a97f4a67cdbff1
         9569429c9d0ff8cecb6cc131bbb57772633e9d
         ea44a218fbd2f408430959283f0419c921093e
         f3eae92b99ea5513a29cf8f848417c53cb8cf6
@@ -246,6 +256,7 @@
         fc46de2a500b081bc8363b753f9fd6fc016fd3
         7260d1333e1cf4e3fb69a2723c1fc2c3533e27
         1dcfdaf1a6857c5f83dc27019c7600e1ffaff8
+        7db4c4ab4862c2b7668b93df02b0db53befe79
         764ea0302756aaaf35b2f776f827244f017a57
         ef56dd776561d265c6502c32283cd704df9349
         0bbca46be5748fb5281f092ec2c7effd836f04
@@ -303,6 +314,7 @@
         162c60464cc14b8ee1cc52272f5bd6da63e7f6
         2ca3d7c7784dc003c09e38921a3830e2df7914
         98579140b24a1fdec02b7a1cfe6e61257140b5
+        54c38540bb94c1b1bf164cd7fd130e1a33d7e1
         e82972474260f353afd99d8bf6db0ecd8c0c13
         9e3a9b3879b87d40217785c317806124d5377d
         cc1c0351388f5b32c2fc1e248bd76bb2ed3557
@@ -336,6 +348,7 @@
         55ea1513b18688d7e988f039f338e5460c07f0
         e8db2e9dbcaf045a321b2c6cb8b58fa6dc1eaa
         66c6a426fea8b0dc489978a4021615459e3e87
+        68649244ddebdd8766c6ed74ee79641a4d7910
         32e5663efba75d0fd6b805a8c8895105ba9112
         45106b8ddf12862e7de766f17ac2ecc7802df9
         2e0c681be0bbb669cf5fe779540ac688ac9d11
@@ -361,6 +374,7 @@
         a2e7f14a5830ec7f7f1b03bc515de7afbc198f
         df6af89e884ebd1e04c4656e25cb665170dc1d
         fdd19cc4aa0990bfe1008bb55d0ba81c3fa797
+        0fd5814f7833a81f87079c63da35d298c5d305
         bb0485aafdc91080a856ea8e2b69485d250fe6
         1b19de4d75db9198ba7de842ec8a1579392013
         482b4b93e96dbcf358676551cab502f36cd1a3
@@ -477,6 +491,7 @@
       urls.cpython-312.pyc
       views.cpython-312.pyc
       __init__.cpython-312.pyc
+  docker-compose.yml
   estructura.txt
     admin.py
     apps.py
@@ -535,6 +550,135 @@
       __init__.cpython-312.pyc
   README.md
   requirements.txt
+      mixpreparadosfj2.png
+      mixpreparadosfj3.png
+        autocomplete.css
+        base.css
+        changelists.css
+        dark_mode.css
+        dashboard.css
+        forms.css
+        login.css
+        nav_sidebar.css
+        responsive.css
+        responsive_rtl.css
+        rtl.css
+        unusable_password_field.css
+            LICENSE-SELECT2.md
+            select2.css
+            select2.min.css
+        widgets.css
+        calendar-icons.svg
+          move_vertex_off.svg
+          move_vertex_on.svg
+        icon-addlink.svg
+        icon-alert.svg
+        icon-calendar.svg
+        icon-changelink.svg
+        icon-clock.svg
+        icon-deletelink.svg
+        icon-hidelink.svg
+        icon-no.svg
+        icon-unknown-alt.svg
+        icon-unknown.svg
+        icon-viewlink.svg
+        icon-yes.svg
+        inline-delete.svg
+        LICENSE
+        README.txt
+        search.svg
+        selector-icons.svg
+        sorting-icons.svg
+        tooltag-add.svg
+        tooltag-arrowright.svg
+        actions.js
+          DateTimeShortcuts.js
+          RelatedObjectLookups.js
+        autocomplete.js
+        calendar.js
+        cancel.js
+        change_form.js
+        core.js
+        filters.js
+        inlines.js
+        jquery.init.js
+        nav_sidebar.js
+        popup_response.js
+        prepopulate.js
+        prepopulate_init.js
+        SelectBox.js
+        SelectFilter2.js
+        theme.js
+        unusable_password_field.js
+        urlify.js
+            jquery.js
+            jquery.min.js
+            LICENSE.txt
+              af.js
+              ar.js
+              az.js
+              bg.js
+              bn.js
+              bs.js
+              ca.js
+              cs.js
+              da.js
+              de.js
+              dsb.js
+              el.js
+              en.js
+              es.js
+              et.js
+              eu.js
+              fa.js
+              fi.js
+              fr.js
+              gl.js
+              he.js
+              hi.js
+              hr.js
+              hsb.js
+              hu.js
+              hy.js
+              id.js
+              is.js
+              it.js
+              ja.js
+              ka.js
+              km.js
+              ko.js
+              lt.js
+              lv.js
+              mk.js
+              ms.js
+              nb.js
+              ne.js
+              nl.js
+              pl.js
+              ps.js
+              pt-BR.js
+              pt.js
+              ro.js
+              ru.js
+              sk.js
+              sl.js
+              sq.js
+              sr-Cyrl.js
+              sr.js
+              sv.js
+              th.js
+              tk.js
+              tr.js
+              uk.js
+              vi.js
+              zh-CN.js
+              zh-TW.js
+            LICENSE.md
+            select2.full.js
+            select2.full.min.js
+            LICENSE.txt
+            xregexp.js
+            xregexp.min.js
       mixpreparadosfj2.png
       mixpreparadosfj3.png
     base.html
