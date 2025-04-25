@@ -1,16 +1,18 @@
 #!/bin/sh
-# wait-for-db.sh
 
-set -e
+# Espera a que la base de datos esté disponible
+if [ -z "$1" ]; then
+  echo "Usage: $0 <host> <command>"
+  exit 1
+fi
 
-host="$1"
+HOST="$1"
 shift
-cmd="$@"
 
-until PGPASSWORD=$POSTGRES_PASSWORD psql -h "$host" -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c '\q'; do
-  >&2 echo "Postgres is unavailable - sleeping"
-  sleep 2
+until pg_isready -h "$HOST" -p 5432; do
+  echo "Postgres is unavailable - sleeping"
+  sleep 1
 done
 
->&2 echo "Postgres is up - executing command"
-exec $cmd
+echo "Postgres is up - executing command"
+exec "$@"
