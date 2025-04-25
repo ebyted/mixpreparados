@@ -1,7 +1,7 @@
 services:
   web:
     build: .
-    command: ["bash"]
+    command: ["sleep", "10000"]
     volumes:
       - .:/code
     working_dir: /code
