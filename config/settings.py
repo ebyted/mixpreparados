@@ -7,8 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # --- ENVIRON SETUP
 env = environ.Env(
-    # set casting, default value
-    DJANGO_DEBUG=(bool, False)
+    DEBUG=(bool, False)
 )
 environ.Env.read_env(BASE_DIR / ".env")
 
