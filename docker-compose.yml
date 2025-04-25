@@ -1,7 +1,7 @@
 services:
   web:
     build: .
-    command: ["./wait-for-db.sh", "db", "bash", "-c", "python manage.py migrate && gunicorn config.wsgi:application --bind 0.0.0.0:8000"]
+    command: ["bash"]
     volumes:
       - .:/code
     working_dir: /code
