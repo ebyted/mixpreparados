@@ -17,7 +17,12 @@ services:
 
   web:
     build: .
-    command: ./wait-for-db.sh bash -c "python manage.py migrate && gunicorn config.wsgi:application --bind 0.0.0.0:8000"
+    command: bash -c "
+      until nc -z db 5432; do echo '⏳ Esperando a DB...'; sleep 1; done;
+      echo '✅ DB lista';
+      python manage.py migrate &&
+      gunicorn config.wsgi:application --bind 0.0.0.0:8000
+    "
     volumes:
       - .:/code
     working_dir: /code
