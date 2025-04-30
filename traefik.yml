@@ -1,0 +1,24 @@
+entryPoints:
+  web:
+    address: ":80"
+  websecure:
+    address: ":443"
+
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      email: ebyted@gmail.com
+      storage: /etc/traefik/acme.json
+      httpChallenge:
+        entryPoint: web
+
+api:
+  dashboard: true
+
+providers:
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    exposedByDefault: false
+  file:
+    directory: /etc/traefik/dynamic
+    watch: true
