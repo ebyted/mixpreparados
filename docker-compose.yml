@@ -36,16 +36,20 @@ services:
     labels:
       - traefik.enable=true
 
+      # Router HTTP (puerto 80)
       - traefik.http.routers.compadre.rule=Host(`elcompadremix.com`)
       - traefik.http.routers.compadre.entrypoints=web
       - traefik.http.routers.compadre.service=compadreservice
 
+      # Router HTTPS (puerto 443)
       - traefik.http.routers.compadresecure.rule=Host(`elcompadremix.com`)
       - traefik.http.routers.compadresecure.entrypoints=websecure
       - traefik.http.routers.compadresecure.tls.certresolver=letsencrypt
       - traefik.http.routers.compadresecure.service=compadreservice
 
+      # Servicio explícito con nombre único y puerto interno
       - traefik.http.services.compadreservice.loadbalancer.server.port=8005
+
 
   db:
     image: postgres:15
