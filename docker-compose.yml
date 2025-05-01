@@ -1,7 +1,7 @@
 version: "3.8"
 
 services:
-  web1:
+  web:
     build: ./app1
     command: bash -c "
       until nc -z db1 5432; do echo '⏳ Esperando a DB1...'; sleep 1; done;
