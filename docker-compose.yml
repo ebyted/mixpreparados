@@ -28,7 +28,8 @@ services:
     depends_on:
       - db
     networks:
-      - default
+     - default
+     - dokploy-network
     labels:
       - traefik.enable=true
       - traefik.http.routers.elcompadremix.rule=Host(`elcompadremix.com`)
