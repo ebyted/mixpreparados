@@ -22,9 +22,9 @@ services:
       until nc -z db 5432; do echo '⏳ Esperando a DB...'; sleep 1; done;
       echo '✅ DB lista';
       python manage.py migrate &&
-      gunicorn config.wsgi:application --bind 0.0.0.0:8000"
+      gunicorn config.wsgi:application --bind 0.0.0.0:8005"
     volumes:
-      - .:/code/elcompadremix
+      - .:/code
     working_dir: /code
     env_file:
       - .env
@@ -40,7 +40,7 @@ services:
       - traefik.http.routers.websecure.rule=Host(`elcompadremix.com`)
       - traefik.http.routers.websecure.entrypoints=websecure
       - traefik.http.routers.websecure.tls.certresolver=letsencrypt
-      - traefik.http.services.web.loadbalancer.server.port=8000
+      - traefik.http.services.web.loadbalancer.server.port=8005
 
   db:
     image: postgres:15
