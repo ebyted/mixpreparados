@@ -12,10 +12,7 @@ services:
       - /etc/dokploy/traefik/sites/elcompadremix/traefik.yml:/etc/traefik/traefik.yml
       - /var/run/docker.sock:/var/run/docker.sock
       - /etc/dokploy/traefik/sites/elcompadremix/letsencrypt:/letsencrypt
-    networks:
-      - default
 
-services:
   web:
     build: .
     command: bash -c "
