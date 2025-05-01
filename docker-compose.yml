@@ -35,12 +35,21 @@ services:
      - dokploy-network
     labels:
       - traefik.enable=true
-      - traefik.http.routers.elcompadremix.rule=Host(`elcompadremix.com`)
-      - traefik.http.routers.elcompadremix.entrypoints=web
-      - traefik.http.routers.elcompadremixsecure.rule=Host(`elcompadremix.com`)
-      - traefik.http.routers.elcompadremixsecure.entrypoints=websecure
-      - traefik.http.routers.elcompadremixsecure.tls.certresolver=letsencrypt
-      - traefik.http.services.elcompadremix.loadbalancer.server.port=8005
+
+      # HTTP Router
+      - traefik.http.routers.compadre.rule=Host(`elcompadremix.com`)
+      - traefik.http.routers.compadre.entrypoints=web
+
+      # HTTPS Router
+      - traefik.http.routers.compadresecure.rule=Host(`elcompadremix.com`)
+      - traefik.http.routers.compadresecure.entrypoints=websecure
+      - traefik.http.routers.compadresecure.tls.certresolver=letsencrypt
+
+      # Servicio explícito y con nombre único
+      - traefik.http.routers.compadre.service=compadreservice
+      - traefik.http.routers.compadresecure.service=compadreservice
+      - traefik.http.services.compadreservice.loadbalancer.server.port=8005
+
 
   db:
     image: postgres:15
