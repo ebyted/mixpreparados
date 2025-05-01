@@ -57,3 +57,5 @@ volumes:
 networks:
   default:
     driver: bridge
+  dokploy-network:
+    external: true
