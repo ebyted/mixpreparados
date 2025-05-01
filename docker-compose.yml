@@ -1,49 +1,48 @@
 version: "3.8"
 
 services:
-  traefik:
-    image: traefik:v2.10
-    command:
-      - "--configFile=/etc/traefik/traefik.yml"
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./dynamic:/etc/traefik/dynamic
-      - /var/run/docker.sock:/var/run/docker.sock
-    networks:
-      - default
-
-  web:
-    build: .
+  web1:
+    build: ./app1
     command: bash -c "
-      until nc -z db 5432; do echo '⏳ Esperando a DB...'; sleep 1; done;
-      echo '✅ DB lista';
+      until nc -z db1 5432; do echo '⏳ Esperando a DB1...'; sleep 1; done;
+      echo '✅ DB1 lista';
       python manage.py migrate &&
       gunicorn config.wsgi:application --bind 0.0.0.0:8000"
     volumes:
-      - .:/code
+      - ./app1:/code
     working_dir: /code
     env_file:
-      - .env
+      - ./app1/.env
     depends_on:
-      - db
+      - db1
+    ports:
+      - "8000:8000"  # Exponiendo puerto 8000 al exterior
     networks:
       - default
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.web.rule=Host(`elcompadremix.com`)
-      - traefik.http.routers.web.entrypoints=web
-      - traefik.http.routers.web.middlewares=redirect-to-https@file
-      - traefik.http.routers.websecure.rule=Host(`elcompadremix.com`)
-      - traefik.http.routers.websecure.entrypoints=websecure
-      - traefik.http.routers.websecure.tls.certresolver=letsencrypt
-      - traefik.http.services.web.loadbalancer.server.port=8000
 
-  db:
+  web2:
+    build: ./app2
+    command: bash -c "
+      until nc -z db2 5432; do echo '⏳ Esperando a DB2...'; sleep 1; done;
+      echo '✅ DB2 lista';
+      python manage.py migrate &&
+      gunicorn config.wsgi:application --bind 0.0.0.0:8000"
+    volumes:
+      - ./app2:/code
+    working_dir: /code
+    env_file:
+      - ./app2/.env
+    depends_on:
+      - db2
+    ports:
+      - "8001:8000"  # Exponiendo otro puerto externo
+    networks:
+      - default
+
+  db1:
     image: postgres:15
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - postgres_data1:/var/lib/postgresql/data/
     environment:
       - POSTGRES_DB=${POSTGRES_DB}
       - POSTGRES_USER=${POSTGRES_USER}
@@ -52,8 +51,21 @@ services:
     networks:
       - default
 
+  db2:
+    image: postgres:15
+    volumes:
+      - postgres_data2:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB2}
+      - POSTGRES_USER=${POSTGRES_USER2}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD2}
+    restart: always
+    networks:
+      - default
+
 volumes:
-  postgres_data:
+  postgres_data1:
+  postgres_data2:
 
 networks:
   default:
