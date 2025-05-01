@@ -1,4 +1,6 @@
+version: "3.8"
 
+services:
   web:
     build: .
     command: bash -c "
@@ -17,13 +19,12 @@
       - default
     labels:
       - traefik.enable=true
-      - traefik.http.routers.web.rule=Host(`elcompadremix.com`)
-      - traefik.http.routers.web.entrypoints=web
-#      - traefik.http.routers.web.middlewares=redirect-to-https@file
-      - traefik.http.routers.websecure.rule=Host(`elcompadremix.com`)
-      - traefik.http.routers.websecure.entrypoints=websecure
-      - traefik.http.routers.websecure.tls.certresolver=letsencrypt
-      - traefik.http.services.web.loadbalancer.server.port=8005
+      - traefik.http.routers.elcompadremix.rule=Host(`elcompadremix.com`)
+      - traefik.http.routers.elcompadremix.entrypoints=web
+      - traefik.http.routers.elcompadremixsecure.rule=Host(`elcompadremix.com`)
+      - traefik.http.routers.elcompadremixsecure.entrypoints=websecure
+      - traefik.http.routers.elcompadremixsecure.tls.certresolver=letsencrypt
+      - traefik.http.services.elcompadremix.loadbalancer.server.port=8005
 
   db:
     image: postgres:15
