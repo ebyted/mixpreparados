@@ -1,21 +1,6 @@
 version: "3.8"
 
 services:
-  traefik:
-    image: traefik:v2.10
-    command:
-      - "--configFile=/etc/traefik/traefik.yml"
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-     - ./dynamic:/etc/traefik/dynamic
-     - /var/run/docker.sock:/var/run/docker.sock
-     - ./letsencrypt:/letsencrypt
-
-    networks:
-      - default
-
   web:
     build: .
     command: bash -c "
@@ -34,13 +19,13 @@ services:
       - default
     labels:
       - traefik.enable=true
-      - traefik.http.routers.web.rule=Host(`elcompadremix.com`)
-      - traefik.http.routers.web.entrypoints=web
-      - traefik.http.routers.web.middlewares=redirect-to-https@file
-      - traefik.http.routers.websecure.rule=Host(`elcompadremix.com`)
-      - traefik.http.routers.websecure.entrypoints=websecure
-      - traefik.http.routers.websecure.tls.certresolver=letsencrypt
-      - traefik.http.services.web.loadbalancer.server.port=8005
+      - traefik.http.routers.elcompadre.rule=Host(`elcompadremix.com`)
+      - traefik.http.routers.elcompadre.entrypoints=web
+      - traefik.http.routers.elcompadre.middlewares=redirect-to-https@file
+      - traefik.http.routers.elcompadre-secure.rule=Host(`elcompadremix.com`)
+      - traefik.http.routers.elcompadre-secure.entrypoints=websecure
+      - traefik.http.routers.elcompadre-secure.tls.certresolver=letsencrypt
+      - traefik.http.services.elcompadre.loadbalancer.server.port=8005
 
   db:
     image: postgres:15
