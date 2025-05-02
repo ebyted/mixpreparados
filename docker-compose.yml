@@ -1,34 +1,73 @@
+
 services:
+  traefik:
+    image: traefik:v2.10
+    command:
+      - "--configFile=/etc/traefik/traefik.yml"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /etc/dokploy/traefik/sites/elcompadremix/traefik.yml:/etc/traefik/traefik.yml
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /etc/dokploy/traefik/sites/elcompadremix/letsencrypt:/letsencrypt
+    networks:
+      - default
+      - dokploy-network
+
   web:
     build: .
-    command: bash -c "python manage.py migrate && gunicorn config.wsgi:application --bind 0.0.0.0:8000"
+    command: bash -c "
+      until nc -z db 5432; do echo '⏳ Esperando a DB...'; sleep 1; done;
+      echo '✅ DB lista';
+      python manage.py migrate &&
+      gunicorn config.wsgi:application --bind 0.0.0.0:8005"
     volumes:
       - .:/code
     working_dir: /code
-    ports:
-      - "8000:8000"
     env_file:
       - .env
     depends_on:
       - db
     networks:
-      - default
+     - default
+     - dokploy-network
+    labels:
+      - traefik.enable=true
+
+      # Router HTTP (puerto 80)
+      - traefik.http.routers.compadre.rule=Host(`elcompadremix.com`)
+      - traefik.http.routers.compadre.entrypoints=web
+      - traefik.http.routers.compadre.service=compadreservice
+
+      # Router HTTPS (puerto 443)
+      - traefik.http.routers.compadresecure.rule=Host(`elcompadremix.com`)
+      - traefik.http.routers.compadresecure.entrypoints=websecure
+      - traefik.http.routers.compadresecure.tls.certresolver=letsencrypt
+      - traefik.http.routers.compadresecure.service=compadreservice
+
+      # Servicio explícito con nombre único y puerto interno
+      - traefik.http.services.compadreservice.loadbalancer.server.port=8005
+
 
   db:
     image: postgres:15
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - postgres_compadre_data:/var/lib/postgresql/data/
     environment:
       - POSTGRES_DB=${POSTGRES_DB}
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     restart: always
     networks:
-      - default
+     - default
+     - dokploy-network
 
 volumes:
-  postgres_data:
+  postgres_compadre_data:
 
 networks:
   default:
     driver: bridge
+  dokploy-network:
+    external: true
