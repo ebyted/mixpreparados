@@ -64,7 +64,7 @@ services:
      - dokploy-network
 
 volumes:
-  postgres_data:
+  postgres_compadre_data:
 
 networks:
   default:
