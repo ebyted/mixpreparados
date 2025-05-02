@@ -54,7 +54,7 @@ services:
   db:
     image: postgres:15
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - postgres_compadre_data:/var/lib/postgresql/data/
     environment:
       - POSTGRES_DB=${POSTGRES_DB}
       - POSTGRES_USER=${POSTGRES_USER}
