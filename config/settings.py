@@ -15,6 +15,10 @@ environ.Env.read_env(BASE_DIR / ".env")
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 DEBUG = env("DJANGO_DEBUG")
 ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS")
+CSRF_TRUSTED_ORIGINS = [
+    'https://elcompadremix.com',
+    'https://www.elcompadremix.com',
+]
 
 # --- APPLICATIONS
 INSTALLED_APPS = [
