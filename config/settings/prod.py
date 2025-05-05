@@ -9,6 +9,9 @@ CSRF_TRUSTED_ORIGINS = [
     'https://www.elcompadremix.com',
 ]
 
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
 
 DATABASES = {
     'default': {
