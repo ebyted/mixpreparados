@@ -1,10 +1,13 @@
-# config/settings/base.py
 import os
 from pathlib import Path
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'inseguro-dev-key')
+SECRET_KEY = env('DJANGO_SECRET_KEY')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -13,9 +16,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Tus apps:
+    'home',
+    'about',
     'products',
     'cart',
+    'testimonials',
+    'contact',
     'accounts',
+    'pages',
 ]
 
 MIDDLEWARE = [
@@ -33,7 +42,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],  # Asegúrate que esta ruta exista
+        'DIRS': [BASE_DIR / 'templates'],  # Asegúrate de tener esto
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -48,15 +57,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-LANGUAGE_CODE = 'es-mx'
-TIME_ZONE = 'America/Tijuana'
-USE_I18N = True
-USE_TZ = True
-
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+LANGUAGE_CODE = 'es-mx'
+TIME_ZONE = 'America/Tijuana'
+USE_I18N = True
+USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
