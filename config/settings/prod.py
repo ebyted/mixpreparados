@@ -4,6 +4,12 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['elcompadremix.com', 'www.elcompadremix.com']
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://elcompadremix.com',
+    'https://www.elcompadremix.com',
+]
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
