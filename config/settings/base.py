@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'contact',
     'accounts',
     'pages',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
