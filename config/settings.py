@@ -55,7 +55,7 @@ TEMPLATES = [
         'DIRS': [
             BASE_DIR / 'templates',
             BASE_DIR / 'static_templates',
-            BASE_DIR / 'templates/templates_custom'
+            BASE_DIR / 'templates_custom'
         ],
         'APP_DIRS': True,
         'OPTIONS': {
