@@ -2,10 +2,12 @@ from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from cart.models import CartItem
 from .models import Product  # Asegúrate de tener esto también
-from django.views.generic import TemplateView
+from django.views.generic import ListView
 
-class ProductsStaticView(TemplateView):
-    template_name = "static_templates/products.html"
+class ProductsStaticView(ListView):
+  model = Product
+  template_name = "static_templates/products.html"  # Usa tu template actual
+  context_object_name = 'products'
 
 @login_required
 def add_to_cart(request, product_id):
