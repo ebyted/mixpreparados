@@ -365,83 +365,129 @@
       <div id="carousel-slides" class="overflow-hidden rounded-3xl text-right">
         <!-- Slide 1: Mangonada Supreme -->
         <div class="carousel-slide flex items-center bg-gradient-to-r from-blue-50 to-green-50 p-8">
-          <form action="{% url 'add_to_cart' product_id=1 %}" method="post" class="w-1/2 pr-12">
-            {% csrf_token %}
-            <h3 class="text-4xl font-bold mb-6 text-right">Mangonada Supreme</h3>
-            <p class="text-xl text-gray-600 mb-8">
-              Experience the perfect blend of sweet mango, tangy chamoy, and spicy tajin in our signature Mangonada.
-            </p>
-            <div class="flex items-center gap-6 mb-8 justify-end">
-              <span class="text-3xl font-bold text-blue-600">$8.99</span>
-              <button type="submit" class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700">
-                Order Now
-              </button>
-            </div>
+          <div class="w-1/2 pr-12">
+            {% if user.is_authenticated %}
+              <form action="{% url 'cart:add_to_cart' product_id=1 %}" method="post">
+                {% csrf_token %}
+                <h3 class="text-4xl font-bold mb-6 text-right">Mangonada Supreme</h3>
+                <p class="text-xl text-gray-600 mb-8">
+                  Experience the perfect blend of sweet mango, tangy chamoy, and spicy tajin in our signature Mangonada.
+                </p>
+                <div class="flex items-center gap-6 mb-8 justify-end">
+                  <span class="text-3xl font-bold text-blue-600">$8.99</span>
+                  <button type="submit" class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700">
+                    Order Now
+                  </button>
+                </div>
+              </form>
+            {% else %}
+              <h3 class="text-4xl font-bold mb-6 text-right">Mangonada Supreme</h3>
+              <p class="text-xl text-gray-600 mb-8">
+                Experience the perfect blend of sweet mango, tangy chamoy, and spicy tajin in our signature Mangonada.
+              </p>
+              <div class="flex items-center gap-6 mb-8 justify-end">
+                <span class="text-3xl font-bold text-blue-600">$8.99</span>
+                <a href="{% url 'login' %}" class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700">
+                  Inicia sesión para ordenar
+                </a>
+              </div>
+            {% endif %}
             <div class="flex items-center gap-4">
               <i class="fa-solid fa-pepper-hot text-blue-600"></i>
               <span class="text-gray-600">Spice Level: Medium</span>
             </div>
-          </form>
+          </div>
           <div class="w-1/2">
             <img class="rounded-3xl shadow-2xl w-full max-w-md md:max-w-lg lg:max-w-xl mx-auto"
-              src="https://storage.googleapis.com/uxpilot-auth.appspot.com/256689de4a-82c16aa6c077b32fc432.png"
-              alt="Mangonada Supreme">
+                 src="https://storage.googleapis.com/uxpilot-auth.appspot.com/256689de4a-82c16aa6c077b32fc432.png"
+                 alt="Mangonada Supreme">
           </div>
         </div>
+        
 
         <!-- Slide 2: Michelada Especial -->
         <div class="carousel-slide hidden flex items-center bg-gradient-to-r from-green-50 to-yellow-50 p-8">
-          <form action="{% url 'add_to_cart' product_id=2 %}" method="post" class="w-1/2 pr-12">
-            {% csrf_token %}
-            <h3 class="text-4xl font-bold mb-6">Michelada Especial</h3>
-            <p class="text-xl text-gray-600 mb-8">
-              Bold and tangy beer-based drink perfect for weekends and parties.
-            </p>
-            <div class="flex items-center gap-6 mb-8 justify-end">
-              <span class="text-3xl font-bold text-green-600">$7.49</span>
-              <button type="submit" class="bg-green-600 text-white px-8 py-3 rounded-full hover:bg-green-700">
-                Order Now
-              </button>
-            </div>
+          <div class="w-1/2 pr-12">
+            {% if user.is_authenticated %}
+              <form action="{% url 'cart:add_to_cart' product_id=2 %}" method="post">
+                {% csrf_token %}
+                <h3 class="text-4xl font-bold mb-6">Michelada Especial</h3>
+                <p class="text-xl text-gray-600 mb-8">
+                  Bold and tangy beer-based drink perfect for weekends and parties.
+                </p>
+                <div class="flex items-center gap-6 mb-8 justify-end">
+                  <span class="text-3xl font-bold text-green-600">$7.49</span>
+                  <button type="submit" class="bg-green-600 text-white px-8 py-3 rounded-full hover:bg-green-700">
+                    Order Now
+                  </button>
+                </div>
+              </form>
+            {% else %}
+              <h3 class="text-4xl font-bold mb-6">Michelada Especial</h3>
+              <p class="text-xl text-gray-600 mb-8">
+                Bold and tangy beer-based drink perfect for weekends and parties.
+              </p>
+              <div class="flex items-center gap-6 mb-8 justify-end">
+                <span class="text-3xl font-bold text-green-600">$7.49</span>
+                <a href="{% url 'login' %}" class="bg-green-600 text-white px-8 py-3 rounded-full hover:bg-green-700">
+                  Inicia sesión para ordenar
+                </a>
+              </div>
+            {% endif %}
             <div class="flex items-center gap-4">
               <i class="fa-solid fa-beer-mug-empty text-green-600"></i>
               <span class="text-gray-600">Chill Level: High</span>
             </div>
-          </form>
+          </div>
           <div class="w-1/2">
             <img class="rounded-3xl shadow-2xl w-full max-w-md md:max-w-lg lg:max-w-xl mx-auto"
-              src="https://storage.googleapis.com/uxpilot-auth.appspot.com/e038101ed7-53634b16dfee36034aa9.png"
-              alt="Michelada Especial">
+                 src="https://storage.googleapis.com/uxpilot-auth.appspot.com/e038101ed7-53634b16dfee36034aa9.png"
+                 alt="Michelada Especial">
           </div>
         </div>
+        
 
         <!-- Slide 3: Fruit Cup Deluxe -->
         <div class="carousel-slide hidden flex items-center bg-gradient-to-r from-blue-50 to-green-50 p-8">
-          <form action="{% url 'add_to_cart' product_id=3 %}" method="post" class="w-1/2 pr-12">
-            {% csrf_token %}
-            <h3 class="text-4xl font-bold mb-6">Fruit Cup Deluxe</h3>
-            <p class="text-xl text-gray-600 mb-8">
-              A colorful mix of fresh seasonal fruits served with a touch of lime and chili.
-            </p>
-            <div class="flex items-center gap-6 mb-8 justify-end">
-              <span class="text-3xl font-bold text-blue-600">$6.99</span>
-              <button type="submit" class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700">
-                Order Now
-              </button>
-            </div>
+          <div class="w-1/2 pr-12">
+            {% if user.is_authenticated %}
+              <form action="{% url 'cart:add_to_cart' product_id=3 %}" method="post">
+                {% csrf_token %}
+                <h3 class="text-4xl font-bold mb-6">Fruit Cup Deluxe</h3>
+                <p class="text-xl text-gray-600 mb-8">
+                  A colorful mix of fresh seasonal fruits served with a touch of lime and chili.
+                </p>
+                <div class="flex items-center gap-6 mb-8 justify-end">
+                  <span class="text-3xl font-bold text-blue-600">$6.99</span>
+                  <button type="submit" class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700">
+                    Order Now
+                  </button>
+                </div>
+              </form>
+            {% else %}
+              <h3 class="text-4xl font-bold mb-6">Fruit Cup Deluxe</h3>
+              <p class="text-xl text-gray-600 mb-8">
+                A colorful mix of fresh seasonal fruits served with a touch of lime and chili.
+              </p>
+              <div class="flex items-center gap-6 mb-8 justify-end">
+                <span class="text-3xl font-bold text-blue-600">$6.99</span>
+                <a href="{% url 'login' %}" class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700">
+                  Inicia sesión para ordenar
+                </a>
+              </div>
+            {% endif %}
             <div class="flex items-center gap-4">
               <i class="fa-solid fa-apple-whole text-blue-600"></i>
               <span class="text-gray-600">Freshness Level: High</span>
             </div>
-          </form>
+          </div>
           <div class="w-1/2">
             <img class="rounded-3xl shadow-2xl w-full max-w-md md:max-w-lg lg:max-w-xl mx-auto"
-              src="https://storage.googleapis.com/uxpilot-auth.appspot.com/3224244edf-8d3f5ae3fcef5cbbb55d.png"
-              alt="Fruit Cup Deluxe">
+                 src="https://storage.googleapis.com/uxpilot-auth.appspot.com/3224244edf-8d3f5ae3fcef5cbbb55d.png"
+                 alt="Fruit Cup Deluxe">
           </div>
         </div>
-      </div>
-
+        
       <!-- Carousel Navigation -->
       <div class="absolute top-1/2 -translate-y-1/2 left-4 z-10">
         <button class="bg-white p-3 rounded-full shadow-lg hover:bg-gray-100">
@@ -508,7 +554,7 @@
 </div>   
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const slides = document.querySelectorAll('#carousel-slides > div');
+      const slides = document.querySelectorAll('#carousel-slides .carousel-slide');
       const indicators = document.querySelectorAll('.carousel-indicator');
       let currentIndex = 0;
   

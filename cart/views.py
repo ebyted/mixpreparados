@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import CartItem
+from products.models import Product
 
 # Vista principal del carrito
 @login_required
@@ -59,3 +60,16 @@ def checkout_view(request):
     return render(request, 'static_templates/cart/checkout_success.html', {
         'total': total
     })
+
+@login_required
+def add_to_cart(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+
+    # Verifica si ya está en el carrito
+    item, created = CartItem.objects.get_or_create(user=request.user, product=product)
+    if not created:
+        item.quantity += 1
+        item.save()
+
+    messages.success(request, f'{product.name} fue añadido al carrito.')
+    return redirect('cart:cart_view')
