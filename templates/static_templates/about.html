@@ -329,32 +329,48 @@
 
               <body class="h-full text-base-content">
                 <div class="min-h-screen bg-white">
-    <!-- Header remains exactly the same -->
-    <header id="header" class="fixed w-full bg-white shadow-md z-50">
-        <div class="container mx-auto px-4">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex-shrink-0">
-                    <img class="h-24 w-auto" src="{% static 'images/mixpreparadosfj3.png' %}" alt="El Compadre Mix Logo">
-
-                </div>
-                
-                <nav class="hidden md:flex space-x-8">
-                    <a href="{% url 'home' %}" class="text-red-600 font-semibold">Home</a>
-                    <a href="{% url 'products' %}" class="text-gray-600 hover:text-red-600">Products</a>
-                    <a href="{% url 'about' %}" class="text-gray-600 hover:text-red-600">About Us</a>
-                    <a href="{% url 'testimonials' %}" class="text-gray-600 hover:text-red-600">Testimonials</a>
-                    <a href="{% url 'contact' %}" class="text-gray-600 hover:text-red-600">Contact</a>
-                </nav>
-
-                <div class="md:hidden">
-                    <button class="text-gray-600">
-                        <i class="fa-solid fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </header>
-
+                    <header id="header" class="fixed w-full bg-white shadow-md z-50">
+                        <div class="container mx-auto px-4 lg:px-8 xl:px-16">
+                          <div class="flex items-center justify-between h-20">
+                            <div class="flex-shrink-0">
+                              <img class="h-24 w-auto" src="{% static 'images/mixpreparadosfj3.png' %}" alt="Logo">
+                            </div>
+                            <nav class="hidden md:flex space-x-8">
+                              <a href="{% url 'home' %}" class="text-red-600 font-semibold">Home</a>
+                              <a href="{% url 'products' %}" class="text-gray-600 hover:text-red-600">Products</a>
+                              <a href="{% url 'about' %}" class="text-gray-600 hover:text-red-600">About Us</a>
+                              <a href="{% url 'testimonials' %}" class="text-gray-600 hover:text-red-600">Testimonials</a>
+                              <a href="{% url 'contact' %}" class="text-gray-600 hover:text-red-600">Contact</a>
+                            </nav>
+                            <div class="md:hidden">
+                              <button id="menu-toggle" class="text-gray-600 focus:outline-none">
+                                <i class="fa-solid fa-bars text-2xl"></i>
+                              </button>
+                            </div>
+                          </div>
+                      
+                          <!-- Menú móvil -->
+                          <div id="mobile-menu" class="md:hidden hidden flex-col mt-4 space-y-2">
+                            <a href="{% url 'home' %}" class="block text-gray-600 hover:text-red-600">Home</a>
+                            <a href="{% url 'products' %}" class="block text-gray-600 hover:text-red-600">Products</a>
+                            <a href="{% url 'about' %}" class="block text-gray-600 hover:text-red-600">About Us</a>
+                            <a href="{% url 'testimonials' %}" class="block text-gray-600 hover:text-red-600">Testimonials</a>
+                            <a href="{% url 'contact' %}" class="block text-gray-600 hover:text-red-600">Contact</a>
+                          </div>
+                        </div>
+                      </header>
+                      <script>
+                        document.addEventListener('DOMContentLoaded', () => {
+                          const toggle = document.getElementById('menu-toggle');
+                          const menu = document.getElementById('mobile-menu');
+                          if (toggle && menu) {
+                            toggle.addEventListener('click', () => {
+                              menu.classList.toggle('hidden');
+                            });
+                          }
+                        });
+                      </script>
+                      
     <!-- About Hero Section -->
     <section id="about-hero" class="pt-20 h-[600px] bg-gradient-to-r from-red-50 to-orange-50">
         <div class="container mx-auto px-4 py-20">
