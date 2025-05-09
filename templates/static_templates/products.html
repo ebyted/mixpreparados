@@ -352,79 +352,42 @@
         </div>
     </header>
 
-  <!-- Product Carousel Section -->
-<!-- Product Carousel Section -->
-<section id="product-carousel" class="pt-32">
-  <div class="container mx-auto px-4 py-20">
-    <h2 class="text-4xl font-bold text-center mb-12">Featured Products</h2>
-
-    <!-- Carousel Container -->
-    <div id="carousel-container" class="relative">
-
-      
-      <!-- Carousel Slides -->
-<div id="carousel-slides" class="overflow-hidden rounded-3xl text-right">
-  {% for product in products %}
-  <div class="carousel-slide {% if not forloop.first %}hidden{% endif %} flex items-center p-8 bg-gradient-to-r from-blue-50 to-green-50">
-    <div class="w-1/2 pr-12">
-      {% if user.is_authenticated %}
-      <form action="{% url 'cart:add_to_cart' product.id %}" method="post">
-          {% csrf_token %}
-          <h3 class="text-4xl font-bold mb-6">{{ product.nombre }}</h3>
-          <p class="text-xl text-gray-600 mb-8">{{ product.descripcion }}</p>
-          <div class="flex items-center gap-6 mb-8 justify-end">
-            <span class="text-3xl font-bold text-[var(--color-primary)]">${{ product.precio }}</span>
-            <button type="submit" class="bg-[var(--color-primary)] text-white px-8 py-3 rounded-full hover:bg-[var(--color-primary-focus)]">
-              Order Now
-            </button>
+    <section id="product-carousel" class="pt-32">
+      <div class="container mx-auto px-4 py-20">
+        <h2 class="text-4xl font-bold text-center mb-12">Productos Destacados</h2>
+    
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {% for product in products %}
+          <div class="bg-white shadow-md rounded-2xl p-6">
+            <img src="{% if product.image_url %}{{ product.imagen.url }}{% else %}{% static 'images/default.jpg' %}{% endif %}"
+            alt="{{ product.nombre }}"
+                 class="w-full h-64 object-cover rounded-lg mb-4">
+            <h3 class="text-2xl font-bold mb-2">{{ product.name }}</h3>
+            <p class="text-gray-600 mb-4">{{ product.description }}</p>
+            <span class="block text-xl font-semibold text-blue-600">${{ product.price }}</span>
+    
+            {% if user.is_authenticated %}
+            <form method="post" action="{% url 'products:add_to_cart_from_products' product.id %}">
+              {% csrf_token %}
+              <button type="submit"
+                      class="mt-4 bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700">
+                Agregar al carrito
+              </button>
+            </form>
+            {% else %}
+            <a href="{% url 'login' %}"
+               class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700">
+              Inicia sesión
+            </a>
+            {% endif %}
           </div>
-        </form>
-      {% else %}
-        <h3 class="text-4xl font-bold mb-6">{{ product.nombre }}</h3>
-        <p class="text-xl text-gray-600 mb-8">{{ product.descripcion }}</p>
-        <div class="flex items-center gap-6 mb-8 justify-end">
-          <span class="text-3xl font-bold text-[var(--color-primary)]">${{ product.precio }}</span>
-          <a href="{% url 'login' %}" class="bg-[var(--color-primary)] text-white px-8 py-3 rounded-full hover:bg-[var(--color-primary-focus)]">
-            Inicia sesión para ordenar
-          </a>
+          {% empty %}
+          <p class="col-span-3 text-center text-gray-500">No hay productos disponibles.</p>
+          {% endfor %}
         </div>
-      {% endif %}
-      <div class="flex items-center gap-4">
-        <i class="fa-solid fa-star text-[var(--color-primary)]"></i>
-        <span class="text-gray-600">Producto destacado</span>
       </div>
-    </div>
-    <div class="w-1/2">
-      {% if product.imagen %}
-      <img class="..." src="{{ product.imagen.url }}" alt="{{ product.nombre }}">
-    {% else %}
-      <img class="..." src="{% static 'images/default.jpg' %}" alt="Imagen no disponible">
-    {% endif %}
-    </div>
-  </div>
-  {% endfor %}
-</div>
-      <!-- Carousel Navigation -->
-      <div class="absolute top-1/2 -translate-y-1/2 left-4 z-10">
-        <button class="bg-white p-3 rounded-full shadow-lg hover:bg-gray-100">
-          <i class="fa-solid fa-chevron-left text-2xl text-blue-600"></i>
-        </button>
-      </div>
-      <div class="absolute top-1/2 -translate-y-1/2 right-4 z-10">
-        <button class="bg-white p-3 rounded-full shadow-lg hover:bg-gray-100">
-          <i class="fa-solid fa-chevron-right text-2xl text-blue-600"></i>
-        </button>
-      </div>
-
-      <!-- Carousel Indicators -->
-      <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3">
-        {% for product in products %}
-          <button class="carousel-indicator w-3 h-3 rounded-full {% if forloop.first %}bg-blue-600{% else %}bg-gray-300{% endif %}"></button>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
+    
 
 
     <!-- Footer remains the same -->
