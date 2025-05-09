@@ -418,9 +418,9 @@
 
       <!-- Carousel Indicators -->
       <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3">
-        <button class="carousel-indicator w-3 h-3 rounded-full bg-blue-600"></button>
-        <button class="carousel-indicator w-3 h-3 rounded-full bg-gray-300"></button>
-        <button class="carousel-indicator w-3 h-3 rounded-full bg-gray-300"></button>
+        {% for product in products %}
+          <button class="carousel-indicator w-3 h-3 rounded-full {% if forloop.first %}bg-blue-600{% else %}bg-gray-300{% endif %}"></button>
+        {% endfor %}
       </div>
     </div>
   </div>
