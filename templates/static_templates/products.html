@@ -368,7 +368,7 @@
   <div class="carousel-slide {% if not forloop.first %}hidden{% endif %} flex items-center p-8 bg-gradient-to-r from-blue-50 to-green-50">
     <div class="w-1/2 pr-12">
       {% if user.is_authenticated %}
-        <form action="{% url 'cart:add_to_cart' product.id %}" method="post">
+      <form action="{% url 'cart:add_to_cart' product.id %}" method="post">
           {% csrf_token %}
           <h3 class="text-4xl font-bold mb-6">{{ product.nombre }}</h3>
           <p class="text-xl text-gray-600 mb-8">{{ product.descripcion }}</p>
@@ -395,8 +395,11 @@
       </div>
     </div>
     <div class="w-1/2">
-      <img class="rounded-3xl shadow-2xl w-full max-w-md md:max-w-lg lg:max-w-xl mx-auto"
-           src="{{ product.imagen.url }}" alt="{{ product.nombre }}">
+      {% if product.imagen %}
+      <img class="..." src="{{ product.imagen.url }}" alt="{{ product.nombre }}">
+    {% else %}
+      <img class="..." src="{% static 'images/default.jpg' %}" alt="Imagen no disponible">
+    {% endif %}
     </div>
   </div>
   {% endfor %}
