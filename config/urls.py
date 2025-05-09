@@ -9,7 +9,7 @@ urlpatterns = [
     path('cart/', include('cart.urls', namespace='cart')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('products/', include('products.urls')),
-    path('testimonials/', include('testimonials.urls')),
+#path('testimonials/', include('testimonials.urls')),
 ]
 
 # Esto sirve las imágenes subidas en modo desarrollo
