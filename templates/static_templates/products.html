@@ -356,35 +356,49 @@
       <div class="container mx-auto px-4 py-20">
         <h2 class="text-4xl font-bold text-center mb-12">Productos Destacados</h2>
     
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div id="carousel-slides" class="flex overflow-x-auto snap-x snap-mandatory gap-6 scroll-smooth pb-4">
           {% for product in products %}
-          <div class="bg-white shadow-md rounded-2xl p-6">
+          <div class="flex-none w-80 snap-start bg-white shadow-md rounded-2xl p-6">
             <img src="{% if product.image_url %}{{ product.image_url }}{% else %}{% static 'images/default.jpg' %}{% endif %}"
-            alt="{{ product.name }}"
-            class="w-full h-64 object-cover rounded-lg mb-4">
-            <h3 class="text-2xl font-bold mb-2">{{ product.name }}</h3>
-            <p class="text-gray-600 mb-4">{{ product.description }}</p>
-            <span class="block text-xl font-semibold text-blue-600">${{ product.price }}</span>
-    
+                 alt="{{ product.name }}"
+                 class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-bold mb-2">{{ product.name }}</h3>
+            <p class="text-gray-600 mb-2">{{ product.description }}</p>
+            <span class="block text-lg font-semibold text-blue-600">${{ product.price }}</span>
+        
             {% if user.is_authenticated %}
             <form method="post" action="{% url 'products:add_to_cart_from_products' product.id %}">
               {% csrf_token %}
               <button type="submit"
-                      class="mt-4 bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700">
+                      class="mt-4 bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 w-full">
                 Agregar al carrito
               </button>
             </form>
             {% else %}
             <a href="{% url 'login' %}"
-               class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700">
+               class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 w-full text-center">
               Inicia sesión
             </a>
             {% endif %}
           </div>
-          {% empty %}
-          <p class="col-span-3 text-center text-gray-500">No hay productos disponibles.</p>
           {% endfor %}
         </div>
+        <div class="flex justify-center mt-6 gap-4">
+          <button onclick="scrollCarousel(-1)" class="p-3 bg-gray-200 rounded-full hover:bg-gray-300">
+            <i class="fa-solid fa-chevron-left text-xl text-blue-600"></i>
+          </button>
+          <button onclick="scrollCarousel(1)" class="p-3 bg-gray-200 rounded-full hover:bg-gray-300">
+            <i class="fa-solid fa-chevron-right text-xl text-blue-600"></i>
+          </button>
+        </div>
+        
+        <script>
+          function scrollCarousel(direction) {
+            const container = document.getElementById('carousel-slides');
+            const scrollAmount = 320;
+            container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+          }
+        </script>
       </div>
     </section>
     
