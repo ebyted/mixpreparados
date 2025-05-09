@@ -6,7 +6,7 @@ from django.views.generic import ListView
 
 class ProductsView(ListView):
     model = Product
-    template_name = "static_templates/products.html"
+    template_name = "products/products.html"
     context_object_name = 'products'
 
 @login_required
