@@ -34,26 +34,26 @@ services:
     networks:
       - default
       - dokploy-network
-  labels:
-    - traefik.enable=true
+    labels:
+      - traefik.enable=true
 
-    # HTTPS
-    - traefik.http.routers.compadresecure.rule=Host(`elcompadremix.com`)
-    - traefik.http.routers.compadresecure.entrypoints=websecure
-    - traefik.http.routers.compadresecure.tls.certresolver=letsencrypt
-    - traefik.http.routers.compadresecure.service=compadreservice
+      # HTTPS
+      - traefik.http.routers.compadresecure.rule=Host(`elcompadremix.com`)
+      - traefik.http.routers.compadresecure.entrypoints=websecure
+      - traefik.http.routers.compadresecure.tls.certresolver=letsencrypt
+      - traefik.http.routers.compadresecure.service=compadreservice
 
-    # HTTP redirige a HTTPS
-    - traefik.http.routers.compadre.rule=Host(`elcompadremix.com`)
-    - traefik.http.routers.compadre.entrypoints=web
-    - traefik.http.routers.compadre.middlewares=redirect-to-https
-    - traefik.http.routers.compadre.service=compadreservice  # ✅ ESTA LÍNEA FALTABA
+      # HTTP redirige a HTTPS
+      - traefik.http.routers.compadre.rule=Host(`elcompadremix.com`)
+      - traefik.http.routers.compadre.entrypoints=web
+      - traefik.http.routers.compadre.middlewares=redirect-to-https
+      - traefik.http.routers.compadre.service=compadreservice  # ✅ ESTA LÍNEA FALTABA
 
-    # Middleware definido
-    - traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https
+      # Middleware definido
+      - traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https
 
-    # Servicio
-    - traefik.http.services.compadreservice.loadbalancer.server.port=8000
+      # Servicio
+      - traefik.http.services.compadreservice.loadbalancer.server.port=8000
 
 
   db:
