@@ -47,6 +47,8 @@ services:
       - traefik.http.routers.compadre.rule=Host(`elcompadremix.com`)
       - traefik.http.routers.compadre.entrypoints=web
       - traefik.http.routers.compadre.middlewares=web-redirect-to-https@docker
+      - traefik.http.routers.compadre.service=compadreservice
+
 
       # Middleware desde Docker
       - traefik.http.middlewares.web-redirect-to-https.redirectscheme.scheme=https
