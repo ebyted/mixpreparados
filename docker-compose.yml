@@ -59,6 +59,8 @@ services:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     restart: always
+    ports:
+      - "8005:8005"
     networks:
      - default
      - dokploy-network
