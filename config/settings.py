@@ -14,7 +14,7 @@ environ.Env.read_env(BASE_DIR / ".env")
 # --- SECURITY
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 DEBUG = env("DJANGO_DEBUG")
-ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS")
+ALLOWED_HOSTS = ['elcompadremix.com','www.elcompadremix.com', 'localhost', '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = [
     'https://elcompadremix.com',
     'https://www.elcompadremix.com',
