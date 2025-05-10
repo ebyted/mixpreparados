@@ -30,23 +30,26 @@ services:
     depends_on:
       - db
     networks:
-     - default
-     - dokploy-network
+      - default
+      - dokploy-network
     labels:
       - traefik.enable=true
 
-      # Router HTTP (puerto 80)
-      - traefik.http.routers.compadre.rule=Host(`elcompadremix.com`)
-      - traefik.http.routers.compadre.entrypoints=web
-      - traefik.http.routers.compadre.service=compadreservice
-
-      # Router HTTPS (puerto 443)
+      # HTTPS
       - traefik.http.routers.compadresecure.rule=Host(`elcompadremix.com`)
       - traefik.http.routers.compadresecure.entrypoints=websecure
       - traefik.http.routers.compadresecure.tls.certresolver=letsencrypt
       - traefik.http.routers.compadresecure.service=compadreservice
 
-      # Servicio explícito con nombre único y puerto interno
+      # HTTP redirige a HTTPS
+      - traefik.http.routers.compadre.rule=Host(`elcompadremix.com`)
+      - traefik.http.routers.compadre.entrypoints=web
+      - traefik.http.routers.compadre.middlewares=redirect-to-https
+
+      # Middleware definido
+      - traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https
+
+      # Servicio
       - traefik.http.services.compadreservice.loadbalancer.server.port=8000
 
 
