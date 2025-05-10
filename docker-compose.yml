@@ -21,7 +21,7 @@ services:
       until nc -z db 5432; do echo '⏳ Esperando a DB...'; sleep 1; done;
       echo '✅ DB lista';
       python manage.py migrate &&
-      gunicorn config.wsgi:application --bind 0.0.0.0:8005"
+      gunicorn config.wsgi:application --bind 0.0.0.0:8000"
     volumes:
       - .:/code
     working_dir: /code
@@ -47,7 +47,7 @@ services:
       - traefik.http.routers.compadresecure.service=compadreservice
 
       # Servicio explícito con nombre único y puerto interno
-      - traefik.http.services.compadreservice.loadbalancer.server.port=8005
+      - traefik.http.services.compadreservice.loadbalancer.server.port=8000
 
 
   db:
