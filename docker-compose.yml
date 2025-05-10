@@ -11,6 +11,8 @@ services:
       - /etc/dokploy/traefik/sites/elcompadremix/traefik.yml:/etc/traefik/traefik.yml
       - /var/run/docker.sock:/var/run/docker.sock
       - /etc/dokploy/traefik/sites/elcompadremix/letsencrypt:/letsencrypt
+      - /etc/dokploy/traefik/sites/elcompadremix:/etc/traefik/sites/elcompadremix
+
     networks:
       - default
       - dokploy-network
