@@ -11,7 +11,7 @@
         {% for product in products %}
         <div class="flex-none w-80 snap-start bg-white shadow-md rounded-2xl p-6 flex flex-col justify-between h-[480px]">
           <div>
-            <img src="{% if product.image_url %}{{ product.image_url|replace:'http://','https://' }}{% else %}{% static 'images/default.jpg' %}{% endif %}"
+            <img src="{% if product.image_url %}{{ product.image_url }}{% else %}{% static 'images/default.jpg' %}{% endif %}"
                  alt="{{ product.name }}"
                  class="w-full h-48 object-cover rounded-lg mb-4">
             <h3 class="text-xl font-bold mb-2">{{ product.name }}</h3>
