@@ -9,3 +9,8 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+    @property
+    def secure_image_url(self):
+        if self.image_url and self.image_url.startswith("http://"):
+            return self.image_url.replace("http://", "https://")
+        return self.image_url
