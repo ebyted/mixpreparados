@@ -3,12 +3,12 @@ services:
   traefik:
     image: traefik:v2.10
     command:
-      - "--configFile=/etc/traefik/traefik.yml"
+      - "--configFile=/etc/traefik/sites/elcompadremix/traefik.yml"
     ports:
       - "80:80"
       - "443:443"
     volumes:
-      - /etc/dokploy/traefik/sites/elcompadremix/traefik.yml:/etc/traefik/traefik.yml
+      - /etc/dokploy/traefik/sites/elcompadremix/traefik.yml:/etc/traefik/sites/elcompadremix/traefik.yml
       - /var/run/docker.sock:/var/run/docker.sock
       - /etc/dokploy/traefik/sites/elcompadremix/letsencrypt:/letsencrypt
       - /etc/dokploy/traefik/sites/elcompadremix:/etc/traefik/sites/elcompadremix
