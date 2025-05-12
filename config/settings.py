@@ -2,6 +2,9 @@ import os
 from pathlib import Path
 import environ
 
+STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY")
+STRIPE_PUBLISHABLE_KEY = os.getenv("STRIPE_PUBLISHABLE_KEY")
+
 # --- BASE DIR
 BASE_DIR = Path(__file__).resolve().parent.parent
 
