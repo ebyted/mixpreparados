@@ -1,4 +1,5 @@
 import stripe
+from django.conf import settings
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -45,22 +46,48 @@ def remove_item(request, item_id):
 @login_required
 def checkout_view(request):
     items = CartItem.objects.filter(user=request.user)
+
     if not items.exists():
         messages.warning(request, "Tu carrito está vacío.")
         return redirect('cart:cart_view')
 
-    total = sum(item.subtotal() for item in items)
-    
-    # Borra los items del carrito
-    items.delete()
+    # Configura Stripe
+    stripe.api_key = settings.STRIPE_SECRET_KEY
 
-    # Muestra el mensaje de confirmación
-    messages.success(request, f"Gracias por tu compra. Total pagado: ${total:.2f}")
+    # Prepara productos para Stripe
+    line_items = []
+    for item in items:
+        line_items.append({
+            'price_data': {
+                'currency': 'mxn',
+                'unit_amount': int(item.product.price * 100),  # Stripe usa centavos
+                'product_data': {
+                    'name': item.product.name,
+                },
+            },
+            'quantity': item.quantity,
+        })
 
-    # Renderiza un template especial de confirmación
-    return render(request, 'static_templates/cart/checkout_success.html', {
-        'total': total
-    })
+    # Crea la sesión de pago
+    session = stripe.checkout.Session.create(
+        payment_method_types=['card'],
+        line_items=line_items,
+        mode='payment',
+        success_url='https://elcompadremix.com/cart/checkout_success/',
+        cancel_url='https://elcompadremix.com/cart/',
+    )
+
+    return redirect(session.url, code=303)
+
+@login_required
+def checkout_success(request):
+    CartItem.objects.filter(user=request.user).delete()
+    return render(request, 'static_templates/cart/checkout_success.html')
+
+@login_required
+def checkout_cancelled(request):
+    messages.info(request, "El pago fue cancelado.")
+    return redirect('cart:cart_view')
 
 @login_required
 def add_to_cart(request, product_id):

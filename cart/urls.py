@@ -9,5 +9,7 @@ urlpatterns = [
     path('increase/<int:item_id>/', views.increase_quantity, name='increase_quantity'),
     path('decrease/<int:item_id>/', views.decrease_quantity, name='decrease_quantity'),
     path('remove/<int:item_id>/', views.remove_item, name='remove_item'),
-    path('checkout/', views.checkout_view, name='checkout'),  # ✅ nombre correcto
+    path('checkout/', views.checkout_view, name='checkout'),
+    path('checkout_success/', views.checkout_success, name='checkout_success'),
+    path('checkout_cancelled/', views.checkout_cancelled, name='checkout_cancelled'),
 ]
