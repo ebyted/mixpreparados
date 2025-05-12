@@ -51,6 +51,12 @@ def checkout_view(request):
         messages.warning(request, "Tu carrito está vacío.")
         return redirect('cart:cart_view')
 
+    total = sum(item.product.price * item.quantity for item in items)
+
+    if total < 10:
+        messages.warning(request, "El total mínimo de compra es $10.00 MXN.")
+        return redirect('cart:cart_view')
+
     # Configura Stripe
     stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -74,7 +80,7 @@ def checkout_view(request):
         line_items=line_items,
         mode='payment',
         success_url='https://elcompadremix.com/cart/checkout_success/',
-        cancel_url='https://elcompadremix.com/cart/',
+        cancel_url='https://elcompadremix.com/cart/checkout_cancelled/',
     )
 
     return redirect(session.url, code=303)
