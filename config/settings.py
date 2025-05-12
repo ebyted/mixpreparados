@@ -2,9 +2,6 @@ import os
 from pathlib import Path
 import environ
 
-STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY")
-STRIPE_PUBLISHABLE_KEY = os.getenv("STRIPE_PUBLISHABLE_KEY")
-
 # --- BASE DIR
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -13,6 +10,11 @@ env = environ.Env(
     DEBUG=(bool, False)
 )
 environ.Env.read_env(BASE_DIR / ".env")
+
+# --- STRIPE
+STRIPE_SECRET_KEY = env("STRIPE_SECRET_KEY")
+STRIPE_PUBLISHABLE_KEY = env("STRIPE_PUBLISHABLE_KEY")
+
 
 # --- SECURITY
 SECRET_KEY = env("DJANGO_SECRET_KEY")
