@@ -21,7 +21,7 @@ services:
       until nc -z db 5432; do echo '⏳ Esperando a DB...'; sleep 1; done;
       echo '✅ DB lista';
       python manage.py migrate &&
-      gunicorn config.wsgi:application --bind 0.0.0.0:8000"
+      gunicorn config.wsgi:application --bind 0.0.0.0:8005"
     volumes:
       - .:/code
     working_dir: /code
