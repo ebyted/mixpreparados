@@ -11,6 +11,11 @@ env = environ.Env(
 )
 environ.Env.read_env(BASE_DIR / ".env")
 
+# --- STRIPE
+STRIPE_SECRET_KEY = env("STRIPE_SECRET_KEY", default="")
+STRIPE_PUBLISHABLE_KEY = env("STRIPE_PUBLISHABLE_KEY", default="")
+
+
 # --- SECURITY
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 DEBUG = env("DJANGO_DEBUG")
