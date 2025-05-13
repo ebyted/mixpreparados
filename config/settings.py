@@ -116,7 +116,14 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 # --- REDIRECTS
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/products/'
 LOGOUT_REDIRECT_URL = '/'
+LOGIN_URL = '/accounts/login/'  
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# --- SECURITY HEADERS para producción
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
