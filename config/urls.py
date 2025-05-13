@@ -8,6 +8,7 @@ urlpatterns = [
     path('', include('pages.urls')),  # esta línea lo conecta todo
     path('cart/', include('cart.urls', namespace='cart')),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('accounts.urls', namespace='accounts')),
     path('products/', include('products.urls', namespace='products')),
 #path('testimonials/', include('testimonials.urls')),
 ]
