@@ -32,30 +32,30 @@ services:
     networks:
       - default
       - dokploy-network
-  labels:
-    traefik.enable: "true"
+    labels:
+      traefik.enable: "true"
 
     # HTTPS
-    traefik.http.routers.compadresecure.rule: "Host(`elcompadremix.com`)"
-    traefik.http.routers.compadresecure.entrypoints: "websecure"
-    traefik.http.routers.compadresecure.tls.certresolver: "letsencrypt"
-    traefik.http.routers.compadresecure.service: "compadremixservice"
-    traefik.http.routers.compadresecure.middlewares: "forwarded-headers"
+      traefik.http.routers.compadresecure.rule: "Host(`elcompadremix.com`)"
+      traefik.http.routers.compadresecure.entrypoints: "websecure"
+      traefik.http.routers.compadresecure.tls.certresolver: "letsencrypt"
+      traefik.http.routers.compadresecure.service: "compadremixservice"
+      traefik.http.routers.compadresecure.middlewares: "forwarded-headers"
 
     # HTTP redirige a HTTPS
-    traefik.http.routers.compadre.rule: "Host(`elcompadremix.com`)"
-    traefik.http.routers.compadre.entrypoints: "web"
-    traefik.http.routers.compadre.middlewares: "redirect-to-https"
-    traefik.http.routers.compadre.service: "compadremixservice"
+      traefik.http.routers.compadre.rule: "Host(`elcompadremix.com`)"
+      traefik.http.routers.compadre.entrypoints: "web"
+      traefik.http.routers.compadre.middlewares: "redirect-to-https"
+      traefik.http.routers.compadre.service: "compadremixservice"
 
     # Middleware de redirección HTTP → HTTPS
-    traefik.http.middlewares.redirect-to-https.redirectscheme.scheme: "https"
+      traefik.http.middlewares.redirect-to-https.redirectscheme.scheme: "https"
 
     # 🚀 Middleware que pasa encabezado HTTPS a Django
-    traefik.http.middlewares.forwarded-headers.headers.customrequestheaders.X-Forwarded-Proto: "https"
+      traefik.http.middlewares.forwarded-headers.headers.customrequestheaders.X-Forwarded-Proto: "https"
 
     # Servicio
-    traefik.http.services.compadremixservice.loadbalancer.server.port: "8000"
+      traefik.http.services.compadremixservice.loadbalancer.server.port: "8000"
 
   db:
     image: postgres:15
