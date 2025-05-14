@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from debug.views import debug_info
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -11,6 +12,7 @@ urlpatterns = [
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path('products/', include('products.urls', namespace='products')),
 #path('testimonials/', include('testimonials.urls')),
+    path('debug/', debug_info),
 ]
 
 # Esto sirve las imágenes subidas en modo desarrollo
