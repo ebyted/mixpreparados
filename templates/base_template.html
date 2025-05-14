@@ -312,13 +312,21 @@
                     <div class="flex-shrink-0">
                         <img class="h-24 w-auto" src="{% static 'images/mixpreparadosfj3.png' %}" alt="Logo">
                     </div>
-                    <nav class="hidden md:flex space-x-8">
+                    <nav class="hidden md:flex space-x-4 items-center">
                         <a href="{% url 'home' %}" class="text-red-600 font-semibold">Home</a>
                         <a href="{% url 'products:products' %}" class="text-gray-600 hover:text-red-600">Products</a>
                         <a href="{% url 'about' %}" class="text-gray-600 hover:text-red-600">About Us</a>
                         <a href="{% url 'testimonials' %}" class="text-gray-600 hover:text-red-600">Testimonials</a>
                         <a href="{% url 'contact' %}" class="text-gray-600 hover:text-red-600">Contact</a>
-                    </nav>
+                      
+                        {% if user.is_authenticated %}
+                          <a href="{% url 'logout' %}" class="ml-4 px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition">Cerrar sesión</a>
+                        {% else %}
+                          <a href="{% url 'accounts:login' %}" class="ml-4 px-4 py-2 border border-blue-600 text-blue-600 rounded hover:bg-blue-600 hover:text-white transition">Login</a>
+                          <a href="{% url 'accounts:register' %}" class="ml-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Register</a>
+                        {% endif %}
+                      </nav>
+                      
                     <div class="md:hidden">
                         <button id="menu-toggle" class="text-gray-600 focus:outline-none">
                             <i class="fa-solid fa-bars text-2xl"></i>
@@ -331,6 +339,13 @@
                     <a href="{% url 'about' %}" class="block text-gray-600 hover:text-red-600">About Us</a>
                     <a href="{% url 'testimonials' %}" class="block text-gray-600 hover:text-red-600">Testimonials</a>
                     <a href="{% url 'contact' %}" class="block text-gray-600 hover:text-red-600">Contact</a>
+                
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}" class="block w-full text-center px-2 py-1 bg-red-600 text-white rounded hover:bg-red-700 text-xs">Cerrar sesión</a>
+                  {% else %}
+                    <a href="{% url 'accounts:login' %}" class="block w-full text-center px-2 py-1 border border-blue-600 text-blue-600 rounded hover:bg-blue-600 hover:text-white text-xs">Login</a>
+                    <a href="{% url 'accounts:register' %}" class="block w-full text-center px-2 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 text-xs">Register</a>
+                  {% endif %}
                 </div>
             </div>
         </header>
