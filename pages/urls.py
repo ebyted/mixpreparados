@@ -11,8 +11,8 @@ from .views_static import (
 
 urlpatterns = [
     path('', HomeStaticView.as_view(), name='home'),
-    #path('products/', ProductsStaticView.as_view(), name='products'),
     path('about/', AboutStaticView.as_view(), name='about'),
     path('testimonials/', testimonios_view, name='testimonials'),
     path('contact/', ContactStaticView.as_view(), name='contact'),
 ]
+

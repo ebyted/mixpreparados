@@ -5,6 +5,8 @@
 <section id="product-carousel" class="pt-32">
   <div class="container mx-auto px-4 py-20">
     <h2 class="text-4xl font-bold text-center mb-12">Productos Destacados</h2>
+    <p class="text-center text-gray-500">🧾 Se cargaron {{ products|length }} productos.</p>
+
 
     <div id="carousel-slides" class="flex overflow-x-auto snap-x snap-mandatory gap-6 scroll-smooth pb-4 min-h-[500px] items-center justify-center w-full">
       {% if products %}
