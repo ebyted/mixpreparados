@@ -1,0 +1,11 @@
+{% extends "base_template.html" %}
+{% block content %}
+<div class="text-center mt-20">
+  <p class="text-xl font-semibold">¡Bienvenido de vuelta, {{ user.username }}! Cargando productos...</p>
+  <script>
+    setTimeout(() => {
+      window.location.href = "/products/";
+    }, 500);
+  </script>
+</div>
+{% endblock %}
