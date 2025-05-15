@@ -1,6 +1,8 @@
 import os
 from pathlib import Path
 import environ
+from django.urls import reverse_lazy
+
 
 # --- BASE DIR
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -116,7 +118,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 # --- REDIRECTS
-LOGIN_REDIRECT_URL = '/login-redirect/'
+LOGIN_REDIRECT_URL = reverse_lazy('accounts:login_redirect')
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL = '/accounts/login/'  
 
