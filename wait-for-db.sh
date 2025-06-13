@@ -9,10 +9,14 @@ fi
 HOST="$1"
 shift
 
-until pg_isready -h "$HOST" -p 5432; do
+until pg_isready -h "$HOST" -p 5432 > /dev/null/ 2>&1; do
   echo "Postgres is unavailable - sleeping"
   sleep 1
 done
+
+python manage.py migrate --noinput
+
+python manage.py collectstatic --noinput
 
 echo "Postgres is up - executing command"
 exec "$@"
