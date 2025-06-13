@@ -337,7 +337,7 @@
         <section id="hero" class="relative h-[800px] overflow-hidden">
             <div class="absolute inset-0">
                 <img class="w-full h-full object-cover" 
-                     src="{% static 'images/hero.png' %}" 
+                     src="{% static 'images/main_page.png' %}" 
                      alt="video scene of preparing a Mexican drink with celery, lime, and cucumber being served in a glass jar, garnished with chamoy sauce and tajin, cinematic lighting, professional videography style" />
             </div>
             <div class="absolute inset-0 bg-black/50"></div>
@@ -363,12 +363,14 @@
                     Explore Our Menu
                 </a>
             </div>
-            <div class="md:w-1/2">
-                <img 
-                    class="rounded-3xl shadow-2xl w-full max-w-md md:max-w-lg lg:max-w-xl mx-auto" 
-                    src="{% static 'images/trio.png' %}" 
-                    alt="Colorful Mexican drink with fruits and chamoy rim"
-                >
+            <div class="md:w-1/2 flex justify-center">
+                <div>
+                <video                   
+                    class="rounded-3xl shadow-2xl w-full max-w-xs md:max-w-sm lg:max-w-md mx-auto"
+                    controls 
+                    preload="metadata">
+                    <source src="{% static 'videos/exprimiendo.mp4' %}" type="video/mp4">
+                </video>
             </div>
         </div>
     </div>
@@ -402,7 +404,7 @@
                 </div>
                 <div class="md:w-1/2">
                     <img class="rounded-3xl shadow-2xl" 
-                    src="{% static 'images/coctel.png' %}"  >
+                    src="{% static 'images/pouring.png' %}"  >
                 </div>
             </div>
         </div>
